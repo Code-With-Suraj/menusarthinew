@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Vibrant Palette override */
+  --color-brand-50: #FFF9F5;
+  --color-brand-100: #FFEFE6;
+  --color-brand-200: #FFD4C7;
+  --color-brand-500: #FF5C35;
+  --color-brand-600: #E6431D;
+  --color-brand-700: #C22F0E;
+  --color-brand-900: #6B1503;
+
+  /* Custom overrides to match the Vibrant Palette's warm soft background & brand elements */
+  --color-slate-50: #FFF9F5;
+  --color-slate-100: #FFEFE6;
+  --color-slate-200: #FFD4C7;
+  --color-slate-950: #1A1A1A;
+  --color-slate-900: #1A1A1A;
+  --color-slate-800: #2D2D2D;
+  --color-slate-700: #4A4A4A;
+  --color-slate-600: #5E5E5E;
+  --color-slate-500: #757575;
+  --color-slate-400: #9E9E9E;
+  
+  --color-green-100: #E6F3EC;
+  --color-green-600: #2D6A4F;
+  --color-green-700: #1E4634;
+}
+
+/* Custom shadow */
+.card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(255, 92, 53, 0.1);
+}
+
+.price-card {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.price-card.active {
+  border-color: #FF5C35;
+  background: white;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations and Utilities */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.9; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s infinite ease-in-out;
+}
+
+/* Custom animations for screen simulations */
+@keyframes slide-up {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

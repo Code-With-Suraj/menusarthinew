@@ -1,0 +1,6 @@
+{
+  "name": "MenuSarthi - Modern Restaurant QR Ordering System",
+  "description": "A high-conversion landing page and interactive simulator for MenuSarthi, a smart digital ordering system featuring QR table ordering, live kitchen status, and UPI payments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
