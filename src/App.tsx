@@ -1017,7 +1017,7 @@ export default function App() {
             </button>
             
             <a
-              href="https://wa.me/919999999999" 
+              href="https://wa.me/918851666208" 
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold font-display px-8 py-4 rounded-full text-center block text-sm"
@@ -1112,12 +1112,12 @@ export default function App() {
             </p>
             <div className="pt-1">
               <a 
-                href="mailto:support@menusarthi.com" 
+                href="mailto:surajautomation.surajdx@gmail.com" 
                 className="text-brand-500 font-semibold hover:underline block"
               >
-                support@menusarthi.com
+                surajautomation.surajdx@gmail.com
               </a>
-              <span className="text-slate-600 mt-1 block">Toll-free: +91 9999 999 999</span>
+              <span className="text-slate-600 mt-1 block">Contact / WhatsApp: +91 8851666208</span>
             </div>
           </div>
 
