@@ -757,7 +757,7 @@ export default function App() {
                 </li>
               </ul>
               <div className="bg-slate-950 p-3 rounded-xl text-[11px] text-slate-400 border border-slate-800">
-                ⭐ <strong>Trusted by 140+ Indian Restaurants</strong> across Mumbai, Bangalore, Pune, Delhi NCR, and Jaipur.
+                ⭐ <strong>Now launching in major cities</strong> — custom-designed for modern Indian Cafes, Dhabas, and Family Restaurants.
               </div>
             </div>
           </div>
