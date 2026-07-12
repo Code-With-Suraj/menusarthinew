@@ -811,22 +811,22 @@ export default function App() {
         </div>
 
         {/* Pricing Layout Cards */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           
           {/* Card 1: Monthly */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 flex flex-col justify-between">
             <div className="space-y-4">
               <div>
                 <h4 className="font-display font-extrabold text-slate-900 text-base">Monthly Starter</h4>
-                <p className="text-slate-500 text-xs mt-1">Perfect for restaurants that want to start with low investment.</p>
+                <p className="text-slate-500 text-[11px] mt-1">Perfect for restaurants that want to start with low investment.</p>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <span className="font-display font-black text-slate-950 text-3xl font-mono">₹999</span>
                 <span className="text-slate-500 text-xs font-medium"> / Month</span>
               </div>
 
-              <ul className="space-y-3 pt-4 border-t border-slate-200 text-xs text-slate-600">
+              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600">
                 {[
                   "Unlimited QR Table Ordering",
                   "Beautiful Digital Menu",
@@ -836,8 +836,8 @@ export default function App() {
                   "Daily Sales Reports",
                   "Email & WhatsApp Support"
                 ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600 shrink-0" />
+                  <li key={inc} className="flex items-center gap-2 text-[11px]">
+                    <Check className="w-3.5 h-3.5 text-green-600 shrink-0" />
                     <span>{inc}</span>
                   </li>
                 ))}
@@ -856,27 +856,27 @@ export default function App() {
           </div>
 
           {/* Card 2: Yearly (Best Value) */}
-          <div className="bg-slate-900 text-white border-2 border-brand-500 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative shadow-xl shadow-brand-500/5">
-            <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-600 to-orange-500 text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-              <Star className="w-3 h-3 fill-white" />
+          <div className="bg-slate-900 text-white border-2 border-brand-500 rounded-3xl p-5 flex flex-col justify-between relative shadow-xl shadow-brand-500/5">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-600 to-orange-500 text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1 shrink-0 whitespace-nowrap">
+              <Star className="w-2.5 h-2.5 fill-white" />
               Yearly Best Value ⭐
             </div>
 
             <div className="space-y-4">
               <div className="pt-2">
                 <h4 className="font-display font-extrabold text-white text-base">Yearly Premium</h4>
-                <p className="text-slate-400 text-xs mt-1">Save thousands compared to monthly billing.</p>
+                <p className="text-slate-400 text-[11px] mt-1">Save thousands compared to monthly billing.</p>
               </div>
 
-              <div className="pt-2 flex items-baseline gap-2">
-                <span className="font-display font-black text-white text-4xl font-mono">₹9,999</span>
+              <div className="pt-1 flex items-baseline gap-1.5">
+                <span className="font-display font-black text-white text-3.5xl font-mono">₹9,999</span>
                 <span className="text-slate-400 text-xs font-medium"> / Year</span>
               </div>
-              <p className="text-xs text-brand-400 font-semibold bg-brand-500/10 border border-brand-500/20 px-2.5 py-1 rounded-lg inline-block font-display">
+              <p className="text-[10px] text-brand-400 font-semibold bg-brand-500/10 border border-brand-500/20 px-2 py-0.5 rounded-lg inline-block font-display">
                 🎉 Get 2 Months FREE (Save ₹1,989!)
               </p>
 
-              <ul className="space-y-3 pt-4 border-t border-slate-800 text-xs text-slate-300">
+              <ul className="space-y-2.5 pt-4 border-t border-slate-800 text-xs text-slate-300">
                 {[
                   "Everything included in Monthly",
                   "Priority WhatsApp & Calling Support",
@@ -886,8 +886,8 @@ export default function App() {
                   "Dedicated Success Manager",
                   "Free QR Standee Stickers pack"
                 ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-brand-500 shrink-0" />
+                  <li key={inc} className="flex items-center gap-2 text-[11px]">
+                    <Check className="w-3.5 h-3.5 text-brand-500 shrink-0" />
                     <span>{inc}</span>
                   </li>
                 ))}
@@ -906,20 +906,20 @@ export default function App() {
           </div>
 
           {/* Card 3: One-Time Onboarding Add-on */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 flex flex-col justify-between">
             <div className="space-y-4">
               <div>
-                <span className="bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded">OPTIONAL SERVICE</span>
+                <span className="bg-blue-50 text-blue-700 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded">OPTIONAL SERVICE</span>
                 <h4 className="font-display font-extrabold text-slate-900 text-base mt-2">One-Time Setup</h4>
-                <p className="text-slate-500 text-xs mt-1">We'll do everything for you. Zero effort needed.</p>
+                <p className="text-slate-500 text-[11px] mt-1">We'll do everything for you. Zero effort needed.</p>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <span className="font-display font-black text-slate-950 text-3xl font-mono">₹2,999</span>
                 <span className="text-slate-500 text-xs font-medium"> / Setup</span>
               </div>
 
-              <ul className="space-y-3 pt-4 border-t border-slate-200 text-xs text-slate-600">
+              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600">
                 {[
                   "Complete digital menu setup",
                   "Food photos professional crop & upload",
@@ -929,8 +929,8 @@ export default function App() {
                   "Staff training session via Zoom/Meet",
                   "Ready to accept digital orders from Day 1"
                 ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-blue-600 shrink-0" />
+                  <li key={inc} className="flex items-center gap-2 text-[11px]">
+                    <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                     <span>{inc}</span>
                   </li>
                 ))}
@@ -945,6 +945,70 @@ export default function App() {
               >
                 Add One-Time Setup
               </button>
+            </div>
+          </div>
+
+          {/* Card 4: Lifetime Business (Royal Premium) */}
+          <div className="bg-slate-950 text-white border-2 border-amber-500 rounded-3xl p-5 flex flex-col justify-between relative shadow-xl shadow-amber-500/10">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-600 to-yellow-500 text-slate-950 text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1 shrink-0 whitespace-nowrap border border-amber-400">
+              <span>👑 Lifetime Option</span>
+            </div>
+
+            <div className="space-y-4">
+              <div className="pt-2">
+                <h4 className="font-display font-extrabold text-amber-400 text-base flex items-center gap-1">
+                  <span>Lifetime Business</span>
+                </h4>
+                <p className="text-slate-400 text-[10px] mt-1 font-semibold leading-tight">Pay Once. Use Forever.</p>
+                <p className="text-slate-500 text-[10px] leading-normal">Perfect for restaurants that never want monthly subscriptions.</p>
+              </div>
+
+              <div className="pt-1 flex items-baseline gap-1.5">
+                <span className="font-display font-black text-white text-3.5xl font-mono">₹24,999</span>
+                <span className="text-amber-400 text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">One-Time</span>
+              </div>
+              <p className="text-slate-400 text-[10px] font-medium leading-relaxed">
+                Everything in Yearly Premium, plus:
+              </p>
+
+              <ul className="space-y-2.5 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                {[
+                  "Lifetime Access (No Renewal)",
+                  "Free Lifetime Feature Updates",
+                  "Unlimited Orders",
+                  "Unlimited Menu Items",
+                  "Unlimited Staff Accounts",
+                  "Unlimited QR Tables",
+                  "Free Data Migration",
+                  "Premium Priority Support",
+                  "Free Future Core Feature Updates",
+                  "Business Ownership License",
+                  "One Restaurant License"
+                ].map(inc => (
+                  <li key={inc} className="flex items-start gap-2 text-[11px]">
+                    <Check className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                    <span>{inc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-6 space-y-4">
+              <button
+                id="select-lifetime-btn"
+                onClick={() => setIsBookingModalOpen(true)}
+                className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black font-display py-3 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-amber-500/10"
+              >
+                Choose Lifetime Business
+              </button>
+              
+              <p className="text-[10px] text-amber-500/90 font-bold text-center italic bg-amber-500/5 border border-amber-500/10 py-1 px-2 rounded-lg leading-snug">
+                🔥 Limited-Time Launch Offer
+              </p>
+
+              <p className="text-[9px] text-slate-500 leading-normal border-t border-slate-900 pt-3">
+                <strong>Note:</strong> The Lifetime Plan includes lifetime access to the current product and all minor bug fixes. Any future custom feature requests, major enhancements, redesigns, or maintenance work beyond standard support will be charged at ₹5,000 per update/maintenance request.
+              </p>
             </div>
           </div>
 
