@@ -102,7 +102,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-2">
           <span className="bg-brand-500 text-white font-extrabold px-2 py-0.5 rounded text-[10px] tracking-wide font-display">LAUNCH OFFER</span>
           <p className="font-medium font-display tracking-wide">
-            Save up to <strong>2 Months FREE</strong> with our Yearly Plan & get Hands-Free Menu Setup!
+            Get our Limited-Time <strong>Early Bird Yearly Offer</strong> for ₹7,999/year (Only <strong className="text-white font-black">₹22/day</strong>!) & Hands-Free Menu Setup!
           </p>
         </div>
       </div>
@@ -821,9 +821,21 @@ export default function App() {
                 <p className="text-slate-500 text-[11px] mt-1">Perfect for restaurants that want to start with low investment.</p>
               </div>
 
-              <div className="pt-1">
-                <span className="font-display font-black text-slate-950 text-3xl font-mono">₹999</span>
-                <span className="text-slate-500 text-xs font-medium"> / Month</span>
+              <div className="pt-1 space-y-2">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display font-black text-slate-950 text-3.5xl font-mono">₹999</span>
+                  <span className="text-slate-500 text-xs font-semibold"> / Month</span>
+                </div>
+                
+                <div className="bg-slate-200/50 border border-slate-200/80 rounded-xl p-2.5 space-y-1">
+                  <div className="flex justify-between items-center text-[11px]">
+                    <span className="text-slate-500 font-medium">Daily Breakdown:</span>
+                    <span className="font-bold text-slate-900 font-mono text-xs">₹33 / Day</span>
+                  </div>
+                  <p className="text-[10px] text-slate-400 text-center leading-none italic pt-1 border-t border-slate-200">
+                    ☕ Less than the cost of one cutting chai!
+                  </p>
+                </div>
               </div>
 
               <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600">
@@ -865,16 +877,60 @@ export default function App() {
             <div className="space-y-4">
               <div className="pt-2">
                 <h4 className="font-display font-extrabold text-white text-base">Yearly Premium</h4>
-                <p className="text-slate-400 text-[11px] mt-1">Save thousands compared to monthly billing.</p>
+                <div className="flex flex-col gap-1.5 mt-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-[10px] text-brand-400 uppercase tracking-wider font-black">🔥 Early Bird Offer</span>
+                    <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[9px] font-black uppercase px-1.5 py-0.5 rounded-md flex items-center gap-1">
+                      <span className="w-1 h-1 rounded-full bg-orange-400 animate-ping"></span>
+                      First 50 Customers Only
+                    </span>
+                  </div>
+                  <p className="text-slate-400 text-[11px]">Save thousands compared to monthly billing.</p>
+                </div>
               </div>
 
-              <div className="pt-1 flex items-baseline gap-1.5">
-                <span className="font-display font-black text-white text-3.5xl font-mono">₹9,999</span>
-                <span className="text-slate-400 text-xs font-medium"> / Year</span>
+              <div className="pt-1 space-y-3">
+                <div className="text-slate-400 text-xs font-semibold flex items-center gap-1 font-mono">
+                  <span>Regular:</span>
+                  <span className="line-through">₹9,999 / Year</span>
+                  <span className="text-slate-500 text-[10px] font-normal font-sans ml-auto">(₹833 / Month | ₹27 / Day)</span>
+                </div>
+                
+                <div className="flex items-baseline gap-1">
+                  <span className="text-slate-400 text-xs font-semibold">Limited Time:</span>
+                  <span className="font-display font-black text-brand-400 text-3.5xl font-mono">₹7,999</span>
+                  <span className="text-slate-300 text-xs font-medium"> / Year</span>
+                </div>
+
+                <div className="bg-brand-500/15 border border-brand-500/30 rounded-2xl p-3 space-y-2">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-slate-300 font-medium">Effective Monthly:</span>
+                    <span className="font-extrabold text-brand-400 font-mono text-base">₹666 / Month</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs border-t border-brand-500/10 pt-2">
+                    <span className="text-slate-300 font-medium">Effective Daily:</span>
+                    <span className="font-black text-white font-mono text-sm">₹22 / Day</span>
+                  </div>
+                  <p className="text-[10px] text-slate-400 text-center leading-normal pt-1.5 border-t border-brand-500/10">
+                    📉 Only <strong className="text-white">₹22/day</strong> to completely automate your restaurant menu!
+                  </p>
+                </div>
               </div>
-              <p className="text-[10px] text-brand-400 font-semibold bg-brand-500/10 border border-brand-500/20 px-2 py-0.5 rounded-lg inline-block font-display">
-                🎉 Get 2 Months FREE (Save ₹1,989!)
-              </p>
+
+              <div className="bg-brand-500/10 border border-brand-500/20 px-3 py-2.5 rounded-xl space-y-1.5">
+                <p className="text-[11px] text-brand-400 font-extrabold flex items-center justify-between gap-1">
+                  <span>🚀 Instant ₹2,000 Discount Applied</span>
+                  <span className="text-[9px] text-orange-400 bg-orange-500/20 border border-orange-500/30 px-1.5 py-0.5 rounded font-black font-mono">
+                    30/50 Claimed
+                  </span>
+                </p>
+                <p className="text-[10px] text-orange-300 font-bold leading-normal">
+                  ⚠️ Only for the first 50 customers! (यह ऑफर सिर्फ पहले 50 customers के लिए है)
+                </p>
+                <p className="text-[10px] text-slate-400 leading-normal font-medium pt-0.5 border-t border-slate-800">
+                  Note: This special promo does not include 2 months free. (Isme 2 month free nahi honge)
+                </p>
+              </div>
 
               <ul className="space-y-2.5 pt-4 border-t border-slate-800 text-xs text-slate-300">
                 {[
@@ -1067,7 +1123,7 @@ export default function App() {
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
             Join restaurants that are serving customers faster with MenuSarthi. 
-            Start today with just ₹999/month, or save more with our yearly plan and get 2 months FREE.
+            Start today with just <span className="text-white font-semibold">₹999/month (₹33/day)</span>, or lock in our Limited-Time Early Bird Yearly Offer for <span className="text-brand-400 font-semibold">₹7,999/year (effective ₹22/day!)</span>.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-4">
