@@ -867,7 +867,64 @@ export default function App() {
             </div>
           </div>
 
-          {/* Card 2: Yearly (Best Value) */}
+          {/* Card 2: Semi-Yearly Premium */}
+          <div className="bg-white border border-slate-200 rounded-3xl p-5 flex flex-col justify-between shadow-xs relative hover:border-slate-300 transition-all">
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-display font-extrabold text-slate-900 text-base">Semi-Yearly Pro</h4>
+                <p className="text-slate-500 text-[11px] mt-1">Excellent balance of savings and operational flexibility.</p>
+              </div>
+
+              <div className="pt-1 space-y-2">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display font-black text-slate-950 text-3.5xl font-mono">₹4,999</span>
+                  <span className="text-slate-500 text-xs font-semibold"> / 6 Months</span>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-100 rounded-xl p-2.5 space-y-1.5">
+                  <div className="flex justify-between items-center text-[11px]">
+                    <span className="text-slate-500 font-medium">Effective Monthly:</span>
+                    <span className="font-bold text-slate-900 font-mono text-xs">₹833 / Month</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[11px] border-t border-slate-100 pt-1.5">
+                    <span className="text-slate-500 font-medium">Effective Daily:</span>
+                    <span className="font-bold text-slate-900 font-mono text-xs">₹27 / Day</span>
+                  </div>
+                  <p className="text-[10px] text-slate-400 text-center leading-none italic pt-1 border-t border-slate-100">
+                    💼 Less than the cost of a single cup of tea/coffee!
+                  </p>
+                </div>
+              </div>
+
+              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600 font-medium">
+                {[
+                  "Everything included in Monthly",
+                  "Priority Email & WhatsApp Support",
+                  "Custom Menu Banner & Branding",
+                  "Up to 5 Multi-Waiter Logins",
+                  "Monthly Business Performance Audits",
+                  "Free digital QR tabletop files (PDF)"
+                ].map(inc => (
+                  <li key={inc} className="flex items-center gap-2 text-[11px]">
+                    <Check className="w-3.5 h-3.5 text-brand-500 shrink-0" />
+                    <span>{inc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-6">
+              <button
+                id="select-semi-yearly-btn"
+                onClick={() => setIsBookingModalOpen(true)}
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold font-display py-3 rounded-xl text-xs transition-colors cursor-pointer"
+              >
+                Choose Semi-Yearly Pro
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3: Yearly (Best Value) */}
           <div className="bg-slate-900 text-white border-2 border-brand-500 rounded-3xl p-5 flex flex-col justify-between relative shadow-xl shadow-brand-500/5">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-600 to-orange-500 text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1 shrink-0 whitespace-nowrap">
               <Star className="w-2.5 h-2.5 fill-white" />
@@ -932,7 +989,7 @@ export default function App() {
                 </p>
               </div>
 
-              <ul className="space-y-2.5 pt-4 border-t border-slate-800 text-xs text-slate-300">
+              <ul className="space-y-2.5 pt-4 border-t border-slate-800 text-xs text-slate-300 font-medium">
                 {[
                   "Everything included in Monthly",
                   "Priority WhatsApp & Calling Support",
@@ -961,7 +1018,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Card 3: One-Time Onboarding Add-on */}
+          {/* Card 4: One-Time Onboarding Add-on */}
           <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 flex flex-col justify-between">
             <div className="space-y-4">
               <div>
@@ -975,7 +1032,7 @@ export default function App() {
                 <span className="text-slate-500 text-xs font-medium"> / Setup</span>
               </div>
 
-              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600">
+              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600 font-medium">
                 {[
                   "Complete digital menu setup",
                   "Food photos professional crop & upload",
@@ -1001,70 +1058,6 @@ export default function App() {
               >
                 Add One-Time Setup
               </button>
-            </div>
-          </div>
-
-          {/* Card 4: Lifetime Business (Royal Premium) */}
-          <div className="bg-slate-950 text-white border-2 border-amber-500 rounded-3xl p-5 flex flex-col justify-between relative shadow-xl shadow-amber-500/10">
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-600 to-yellow-500 text-slate-950 text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1 shrink-0 whitespace-nowrap border border-amber-400">
-              <span>👑 Lifetime Option</span>
-            </div>
-
-            <div className="space-y-4">
-              <div className="pt-2">
-                <h4 className="font-display font-extrabold text-amber-400 text-base flex items-center gap-1">
-                  <span>Lifetime Business</span>
-                </h4>
-                <p className="text-slate-400 text-[10px] mt-1 font-semibold leading-tight">Pay Once. Use Forever.</p>
-                <p className="text-slate-500 text-[10px] leading-normal">Perfect for restaurants that never want monthly subscriptions.</p>
-              </div>
-
-              <div className="pt-1 flex items-baseline gap-1.5">
-                <span className="font-display font-black text-white text-3.5xl font-mono">₹24,999</span>
-                <span className="text-amber-400 text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">One-Time</span>
-              </div>
-              <p className="text-slate-400 text-[10px] font-medium leading-relaxed">
-                Everything in Yearly Premium, plus:
-              </p>
-
-              <ul className="space-y-2.5 pt-3 border-t border-slate-800 text-xs text-slate-300">
-                {[
-                  "Lifetime Access (No Renewal)",
-                  "Free Lifetime Feature Updates",
-                  "Unlimited Orders",
-                  "Unlimited Menu Items",
-                  "Unlimited Staff Accounts",
-                  "Unlimited QR Tables",
-                  "Free Data Migration",
-                  "Premium Priority Support",
-                  "Free Future Core Feature Updates",
-                  "Business Ownership License",
-                  "One Restaurant License"
-                ].map(inc => (
-                  <li key={inc} className="flex items-start gap-2 text-[11px]">
-                    <Check className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-6 space-y-4">
-              <button
-                id="select-lifetime-btn"
-                onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black font-display py-3 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-amber-500/10"
-              >
-                Choose Lifetime Business
-              </button>
-              
-              <p className="text-[10px] text-amber-500/90 font-bold text-center italic bg-amber-500/5 border border-amber-500/10 py-1 px-2 rounded-lg leading-snug">
-                🔥 Limited-Time Launch Offer
-              </p>
-
-              <p className="text-[9px] text-slate-500 leading-normal border-t border-slate-900 pt-3">
-                <strong>Note:</strong> The Lifetime Plan includes lifetime access to the current product and all minor bug fixes. Any future custom feature requests, major enhancements, redesigns, or maintenance work beyond standard support will be charged at ₹5,000 per update/maintenance request.
-              </p>
             </div>
           </div>
 
