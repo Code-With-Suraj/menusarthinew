@@ -534,19 +534,29 @@ export default function App() {
               icon: CheckSquare
             },
             {
+              title: "Flexible Payments (Online & Offline)",
+              desc: "Fully integrated with premium Razorpay support, direct UPI, Debit/Credit Cards, Wallets, and offline Cash payments. Sab supported hai! Restaurant ko payments receive karna absolute easy aur seamless banata hai.",
+              icon: TrendingUp
+            },
+            {
+              title: "Secure Payment Verification",
+              desc: "Stops fraud instantly. Fake screenshots strictly accept nahi honge. Real-time automatic payment verification ensures you only serve when paid, keeping your restaurant completely safe and secure.",
+              icon: ShieldCheck
+            },
+            {
               title: "Live Order Tracking",
-              desc: "Customers know exactly when food is Received, Preparing, Ready, or Completed. Reduces guest anxiety and eliminates the need to repeatedly call and shout for waiter updates.",
+              desc: "Customers can track their active food order status in real-time: Received ➔ Preparing ➔ Ready ➔ Completed. Customers instantly know progress, so they don't repeatedly disturb or shout for waiters.",
               icon: Landmark
             },
             {
-              title: "Order Revision Safety",
-              desc: "Did a customer select the wrong dish? Allow them to edit or cancel their order before the kitchen dashboard marks it as preparing, dramatically reducing wasted food and cancelled tickets.",
-              icon: AlertTriangle
+              title: "Interactive ETA Timer",
+              desc: "Displays an active live countdown directly on the guest's mobile screen (e.g., '18 min left', '15 min left', '10 min left'). Customer patiently and calmly waits because they see real progress.",
+              icon: Clock
             },
             {
-              title: "Instant UPI Payments",
-              desc: "Direct integration with major UPI handles (Google Pay, PhonePe, Paytm, BHIM). Shows customer a dynamic payment gateway which transfers funds directly into your bank with 0% commissions.",
-              icon: TrendingUp
+              title: "Dynamic Order Revision",
+              desc: "Allows guests to self-edit (add/remove items or change cooking instructions) for a few seconds post-placement. Eliminates accidental orders without needing to call the restaurant or alert a waiter.",
+              icon: AlertTriangle
             },
             {
               title: "Restaurant Admin Dashboard",
