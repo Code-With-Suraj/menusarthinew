@@ -253,9 +253,15 @@ export default function App() {
           {/* Hero Left Content */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            <div className="inline-flex items-center gap-1.5 bg-orange-100 text-[#FF5C35] px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider font-display">
-              <Sparkle className="w-3.5 h-3.5 text-[#FF5C35]" />
-              🚀 The Future of Dining
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2">
+              <div className="inline-flex items-center gap-1.5 bg-orange-100 text-[#FF5C35] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider font-display shrink-0">
+                <Sparkle className="w-3.5 h-3.5 text-[#FF5C35]" />
+                🚀 The Future of Dining
+              </div>
+              <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-3.5 py-1.5 rounded-full text-[11px] font-semibold tracking-wide border border-slate-800 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                <span>Optimized for Cafes & Restaurants with <strong className="text-orange-400 font-extrabold font-mono">50-200 orders/day</strong></span>
+              </div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-[#1A1A1A] tracking-tight leading-[1.1]">
@@ -1010,12 +1016,76 @@ export default function App() {
       {/* 11. PERFECT FOR / BUILT FOR */}
       <section className="py-16 px-4 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/50">
         <div className="max-w-4xl mx-auto text-center space-y-3 mb-10">
-          <span className="text-brand-600 font-bold uppercase tracking-widest text-xs font-mono">
+          <span className="text-[#FF5C35] font-bold uppercase tracking-widest text-xs font-mono">
             Perfect For / Built For
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-black text-slate-950 tracking-tight">
             MenuSarthi is Tailored for Your Dining Space
           </h2>
+        </div>
+
+        {/* Sweet Spot Highlight Callout */}
+        <div className="max-w-5xl mx-auto mb-12 bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-10 relative overflow-hidden border border-slate-800 shadow-xl shadow-slate-950/20">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF5C35]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className="lg:col-span-5 space-y-4 text-left">
+              <span className="bg-[#FF5C35] text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full font-display">
+                ⚡ The Golden Sweet Spot
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-black text-white leading-tight">
+                Designed for <br />
+                <span className="text-[#FF5C35]">50 to 200 Orders</span> <br />
+                Per Day
+              </h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                If your Cafe, Restaurant, or Eatery processes between 50 and 200 daily transactions, your operations are currently in the most labor-stressful range. Waiters run around continuously, and guests experience peak hours delays. MenuSarthi solves this instantly:
+              </p>
+            </div>
+            
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-slate-900/80 border border-slate-800/80 p-4.5 rounded-2xl space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-orange-500/10 text-[#FF5C35] flex items-center justify-center font-bold text-base">
+                  ⏱️
+                </div>
+                <h4 className="text-sm font-bold text-slate-100">Zero Peak Rush Jams</h4>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  During peak lunch/dinner slots, wait staff struggle to attend tables. Automated QR ordering ensures order-to-kitchen transmission happens in under 5 seconds.
+                </p>
+              </div>
+
+              <div className="bg-slate-900/80 border border-slate-800/80 p-4.5 rounded-2xl space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-base">
+                  💸
+                </div>
+                <h4 className="text-sm font-bold text-slate-100">Save Waiter Salaries</h4>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  Avoid hiring 3-4 waiters to write orders on paper. Operate smoothly with 1-2 servers delivering hot food, saving ₹15,000+ monthly in staff costs.
+                </p>
+              </div>
+
+              <div className="bg-slate-900/80 border border-slate-800/80 p-4.5 rounded-2xl space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-base">
+                  📈
+                </div>
+                <h4 className="text-sm font-bold text-slate-100">Boost Average Bill Value</h4>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  With custom menus, guests order 18% more starters, drinks, and desserts mid-meal because they don't have to wait or call a waiter back.
+                </p>
+              </div>
+
+              <div className="bg-slate-900/80 border border-slate-800/80 p-4.5 rounded-2xl space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold text-base">
+                  🛡️
+                </div>
+                <h4 className="text-sm font-bold text-slate-100">Verified Direct UPI</h4>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  At 100+ daily orders, checking fake payment screenshots manually is impossible. Automated UPI audit locks verify payments before tickets close.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -1412,6 +1482,10 @@ export default function App() {
             {
               q: "Can we edit prices or toggle stock ourselves?",
               a: "Yes! Your central Admin panel lets you change prices, add dishes, and toggle 'Out of stock' instantly. If an ingredient runs out, toggle it off to prevent wrong table orders."
+            },
+            {
+              q: "Is MenuSarthi suitable for cafes/restaurants that get 50 to 200 orders per day? (क्या यह उन रेस्टोरेंट और कैफ़े के लिए सही है जहाँ रोज़ 50 से 200 ऑर्डर्स आते हैं?)",
+              a: "Yes, absolutely! In fact, 50 to 200 orders per day is the absolute 'golden sweet spot' for MenuSarthi. At this scale, your wait staff is usually overloaded during peak hours (lunch & dinner rush), causing tables to sit idle waiting for menus or billing. By letting customers order and pay themselves, you eliminate order-taking delays, reduce kitchen bottlenecks, and save on hiring 1-2 extra waiters (saving ₹15,000+ monthly in salaries). Your staff can focus purely on delivering hot food fast!\n\n(हाँ, बिल्कुल! सच कहें तो रोज़ाना 50 से 200 ऑर्डर्स वाले रेस्टोरेंट और कैफ़े के लिए MenuSarthi सबसे ज़्यादा फ़ायदेमंद है। इस स्केल पर, भीड़ के समय वेटर्स बहुत ज़्यादा बिज़ी हो जाते हैं, जिससे ऑर्डर्स और बिलिंग में देरी होती है। जब कस्टमर्स खुद टेबल से ऑर्डर और पेमेंट कर देते हैं, तो वेटिंग टाइम ख़त्म हो जाता है और आपको फालतू 1-2 वेटर्स रखने की ज़रूरत नहीं पड़ती—जिससे हर महीने ₹15,000+ की सैलरी बचती है! आपके मौजूदा वेटर्स सिर्फ़ गरमा-गरम खाना सर्व करने पर ध्यान दे सकते हैं।)"
             },
             {
               q: "Kya yeh local dhabas aur small roadside eateries ke liye bhi perfect hai?",
