@@ -143,15 +143,20 @@ export default function LiveAppGallery() {
                   <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
               ) : (
-                <a
-                  href="https://demomenusarthi.surajdx.com/?page=admin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-black py-3 px-4 rounded-xl text-center uppercase tracking-wider block transition-colors flex items-center justify-center gap-2 border border-slate-700"
-                >
-                  <span>Launch Live Admin Console</span>
-                  <ArrowRight className="w-4 h-4 shrink-0" />
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href="https://demomenusarthi.surajdx.com/?page=admin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-slate-100 hover:bg-white text-slate-950 text-xs font-black py-3 px-4 rounded-xl text-center uppercase tracking-wider block transition-colors flex items-center justify-center gap-2 font-display"
+                  >
+                    <span>Launch Live Admin Console 🖥️</span>
+                    <ArrowRight className="w-4 h-4 shrink-0 text-slate-950" />
+                  </a>
+                  <p className="text-[10px] text-slate-400 text-center font-mono leading-relaxed">
+                    🔑 Enter password <strong className="text-yellow-400">admin123</strong> to log into the live Admin panel.
+                  </p>
+                </div>
               )}
             </div>
 

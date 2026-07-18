@@ -21,10 +21,11 @@ const PROFESSIONAL_LOGO_URL = 'https://blogger.googleusercontent.com/img/b/R29vZ
 // ============================================================================
 
 // ============================================================================
-// LIVE DEMO LINKS (PROFESSIONAL & SMARTLY DECLARED)
+// LIVE DEMO LINKS (PROFESSIONAL & SMARTLY DECLARED WITH PASSWORD)
 // ============================================================================
 const CUSTOMER_DEMO_URL = 'https://demomenusarthi.surajdx.com';
 const ADMIN_DEMO_URL = 'https://demomenusarthi.surajdx.com/?page=admin';
+const ADMIN_DEMO_PASSWORD = 'admin123';
 // ============================================================================
 
 export default function App() {
@@ -218,9 +219,12 @@ export default function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="bg-slate-900 text-white text-xs font-bold text-center py-2.5 rounded-xl block"
+                className="bg-slate-900 text-white text-xs font-bold text-center py-2.5 rounded-xl block relative group"
               >
                 Admin Panel 🖥️
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-yellow-400 text-[8px] text-slate-950 px-1 py-0.2 rounded font-black tracking-wide leading-none whitespace-nowrap shadow-xs uppercase">
+                  PW: admin123
+                </span>
               </a>
             </div>
             <button
@@ -337,7 +341,7 @@ export default function App() {
             </div>
 
             {/* Quick Demo links callout */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 justify-center lg:justify-start border-t border-slate-100">
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-6 justify-center lg:justify-start border-t border-slate-100">
               <span className="text-slate-500 text-xs font-semibold">Try active demo instantly:</span>
               <div className="flex flex-wrap gap-2 justify-center">
                 <a 
@@ -352,9 +356,12 @@ export default function App() {
                   href={ADMIN_DEMO_URL} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors flex items-center gap-1.5 border border-slate-200 shrink-0"
+                  className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl transition-all flex items-center gap-1.5 border border-slate-900 shrink-0 relative group"
                 >
                   Admin Portal 🖥️
+                  <span className="bg-yellow-400 text-slate-950 text-[9px] font-black px-1.5 py-0.5 rounded ml-1 uppercase leading-none">
+                    PW: admin123
+                  </span>
                 </a>
               </div>
             </div>
@@ -544,6 +551,18 @@ export default function App() {
                   </p>
                 </div>
 
+                <div className="bg-slate-900/50 border border-slate-800 p-4 rounded-2xl space-y-1.5">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-slate-400">DEMO PASSWORD:</span>
+                    <span className="bg-yellow-400 text-slate-950 px-2 py-0.5 rounded font-black font-display uppercase tracking-wide">
+                      {ADMIN_DEMO_PASSWORD}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-slate-500 leading-normal">
+                    Enter <strong className="text-white">{ADMIN_DEMO_PASSWORD}</strong> on the admin password page to gain secure root dashboard control access instantly.
+                  </p>
+                </div>
+
                 <div className="border-t border-slate-800 pt-4 space-y-3">
                   <div className="flex items-start gap-2.5 text-xs text-slate-400">
                     <span className="w-4 h-4 bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
@@ -584,7 +603,7 @@ export default function App() {
             <div>
               <p className="font-bold text-slate-900">How to test the connected flow:</p>
               <p className="text-slate-600 mt-1 leading-relaxed">
-                Open both demo links in separate windows (or side-by-side). Place an order from the <strong>Customer Ordering App</strong>. You will see it instantly flash up with a sound cue on the <strong>Restaurant Owner Admin Console</strong>! Change the status to 'Preparing' on the Admin console and watch the customer app status update automatically. It is that smart!
+                Open both demo links in separate windows (or side-by-side). Place an order from the <strong>Customer Ordering App</strong>. You will see it instantly flash up with a sound cue on the <strong>Restaurant Owner Admin Console</strong> (using the password <strong>{ADMIN_DEMO_PASSWORD}</strong> to log in)! Change the status to 'Preparing' on the Admin console and watch the customer app status update automatically. It is that smart!
               </p>
             </div>
           </div>
