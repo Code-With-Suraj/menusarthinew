@@ -121,6 +121,40 @@ export default function LiveAppGallery() {
               ))}
             </div>
 
+            {/* Direct Interactive Demo Launcher */}
+            <div className="bg-slate-900 border border-[#FF5C35]/20 p-4.5 rounded-2xl space-y-3.5 mt-4">
+              <div>
+                <span className="bg-[#FF5C35]/15 text-[#FF5C35] text-[10px] font-bold font-mono px-2 py-0.5 rounded-md">
+                  TRY IT NOW
+                </span>
+                <p className="text-xs text-slate-300 font-semibold mt-1.5">
+                  Want to see this screen in action on your browser?
+                </p>
+              </div>
+              
+              {roleTab === 'customer' ? (
+                <a
+                  href="https://demomenusarthi.surajdx.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#FF5C35] hover:bg-[#E6431D] text-white text-xs font-black py-3 px-4 rounded-xl text-center uppercase tracking-wider block transition-colors flex items-center justify-center gap-2 shadow-lg shadow-orange-500/15"
+                >
+                  <span>Launch Live Customer App</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </a>
+              ) : (
+                <a
+                  href="https://demomenusarthi.surajdx.com/?page=admin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-black py-3 px-4 rounded-xl text-center uppercase tracking-wider block transition-colors flex items-center justify-center gap-2 border border-slate-700"
+                >
+                  <span>Launch Live Admin Console</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </a>
+              )}
+            </div>
+
             {roleTab === 'owner' && (
               <div className="bg-slate-900/30 border border-slate-900 p-4 rounded-2xl space-y-2 mt-4">
                 <div className="flex items-center gap-2 text-emerald-500 text-xs font-bold font-mono">

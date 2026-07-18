@@ -20,6 +20,13 @@ import { DemoBooking } from './types';
 const PROFESSIONAL_LOGO_URL = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWGUCurqhLZ-7V2-wcMFhgoNymvoazjkrBpPa6TJ3lR445ivycZcueMpdGY8S7iQArzZ1KuotJHBPUaOO9YRnayLvNXkqJa1LKtGS1xVxFYqyk9wPiwwgzj2V5-fGk3TX_BmgPO5Qrlnt9w-vdrPrszIMntaPA0uEKbQn3Y9zdwE2sHyQkvqhjFbdXqyxP/s1600-rw/Logo.png';
 // ============================================================================
 
+// ============================================================================
+// LIVE DEMO LINKS (PROFESSIONAL & SMARTLY DECLARED)
+// ============================================================================
+const CUSTOMER_DEMO_URL = 'https://demomenusarthi.surajdx.com';
+const ADMIN_DEMO_URL = 'https://demomenusarthi.surajdx.com/?page=admin';
+// ============================================================================
+
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -152,8 +159,11 @@ export default function App() {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
             <a href="#problem" className="hover:text-slate-900 transition-colors">Features</a>
+            <a href="#live-demo-section" className="hover:text-[#FF5C35] transition-colors flex items-center gap-1">
+              Live Demo <span className="bg-orange-100 text-[#FF5C35] text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse font-display">New</span>
+            </a>
             <a href="#app-screenshots" className="hover:text-slate-900 transition-colors">Live App Tour</a>
             <a href="#playground" className="hover:text-slate-900 transition-colors">Sandbox Demo</a>
             <a href="#pricing" className="hover:text-slate-900 transition-colors">Pricing</a>
@@ -161,8 +171,8 @@ export default function App() {
 
           {/* Nav Right CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="#playground" className="text-slate-600 hover:text-slate-900 text-sm font-semibold transition-colors">
-              Try Sandbox
+            <a href="#live-demo-section" className="text-[#FF5C35] hover:text-[#E6431D] text-sm font-bold transition-colors flex items-center gap-1">
+              ⚡ Try Live Demo
             </a>
             <button
               id="nav-book-demo-btn"
@@ -187,16 +197,39 @@ export default function App() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-slate-100 px-4 py-4 space-y-3 animate-slide-up">
             <a href="#problem" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Features</a>
+            <a href="#live-demo-section" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-[#FF5C35] font-bold text-sm flex items-center gap-1.5">
+              Live Demo ⚡ <span className="bg-orange-100 text-[#FF5C35] text-[9px] px-1.5 py-0.5 rounded-full">Try Now</span>
+            </a>
             <a href="#app-screenshots" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Live App Tour</a>
             <a href="#playground" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Sandbox Demo</a>
             <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Pricing</a>
+            <div className="pt-2 grid grid-cols-2 gap-3">
+              <a 
+                href={CUSTOMER_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="bg-orange-50 text-[#FF5C35] text-xs font-bold text-center py-2.5 rounded-xl border border-orange-100 block"
+              >
+                Customer App 📱
+              </a>
+              <a 
+                href={ADMIN_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="bg-slate-900 text-white text-xs font-bold text-center py-2.5 rounded-xl block"
+              >
+                Admin Panel 🖥️
+              </a>
+            </div>
             <button
               id="mobile-book-demo-btn"
               onClick={() => {
                 setMobileMenuOpen(false);
                 setIsBookingModalOpen(true);
               }}
-              className="w-full bg-brand-600 text-white font-semibold font-display py-3 rounded-xl text-center text-sm block"
+              className="w-full bg-[#FF5C35] text-white font-bold font-display py-3 rounded-xl text-center text-xs uppercase tracking-wider block"
             >
               Book Free Demo
             </button>
@@ -285,22 +318,45 @@ export default function App() {
             </div>
 
             {/* Primary Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 pt-4">
               <button
                 id="hero-book-demo-btn"
                 onClick={() => setIsBookingModalOpen(true)}
-                className="px-8 py-4 bg-[#FF5C35] hover:bg-[#E6431D] text-white rounded-full font-bold text-sm shadow-lg shadow-orange-200 uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-transform hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto px-8 py-4 bg-[#FF5C35] hover:bg-[#E6431D] text-white rounded-2xl font-bold text-sm shadow-lg shadow-orange-200 uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-transform hover:scale-102 active:scale-95"
               >
-                Book Free Demo
+                Book Free Setup
                 <ArrowRight className="w-5 h-5" />
               </button>
               
               <a
-                href="#playground"
-                className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold font-display px-8 py-4 rounded-2xl shadow-sm transition-all text-center block text-sm"
+                href="#live-demo-section"
+                className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold font-display px-8 py-4 rounded-2xl shadow-sm transition-all text-center block text-sm flex items-center justify-center gap-2"
               >
-                Start Today for ₹999
+                ⚡ Try Live Demo
               </a>
+            </div>
+
+            {/* Quick Demo links callout */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 justify-center lg:justify-start border-t border-slate-100">
+              <span className="text-slate-500 text-xs font-semibold">Try active demo instantly:</span>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <a 
+                  href={CUSTOMER_DEMO_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-orange-50 hover:bg-orange-100 text-[#FF5C35] text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors flex items-center gap-1.5 border border-orange-100 shrink-0"
+                >
+                  Customer App 📱
+                </a>
+                <a 
+                  href={ADMIN_DEMO_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors flex items-center gap-1.5 border border-slate-200 shrink-0"
+                >
+                  Admin Portal 🖥️
+                </a>
+              </div>
             </div>
 
           </div>
@@ -401,6 +457,138 @@ export default function App() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* NEW: LIVE DEMO SECTION */}
+      <section id="live-demo-section" className="py-20 px-4 bg-gradient-to-b from-orange-50/70 via-white to-white scroll-mt-20 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="inline-flex items-center gap-1 bg-orange-100 text-[#FF5C35] text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider font-display">
+              ⚡ Try Real Live System
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-black text-slate-900 tracking-tight leading-tight">
+              Test the Fully Functional Demo Right Now
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              No forms, no waiting, no app store downloads. Experience both sides of our lightning-fast QR ordering loop directly in your browser.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            {/* Card 1: Customer-Facing Demo */}
+            <div className="bg-white border border-slate-200 hover:border-[#FF5C35]/30 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl shadow-slate-100/40 hover:shadow-2xl hover:shadow-orange-100/10 transition-all hover:-translate-y-1 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl group-hover:bg-orange-500/10 transition-all pointer-events-none" />
+              <div className="space-y-6">
+                <div className="w-12 h-12 bg-orange-100 text-[#FF5C35] rounded-2xl flex items-center justify-center font-bold text-2xl shadow-sm border border-orange-200/20">
+                  📱
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-display font-extrabold text-slate-900 text-xl">Customer Ordering App</h3>
+                    <span className="bg-green-100 text-green-700 font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Live Sandbox</span>
+                  </div>
+                  <p className="text-slate-500 text-xs mt-2 leading-relaxed">
+                    This is what your diners see when they scan your tabletop QR. Browse a beautiful Indian restaurant menu with food tags, customize portion sizes, add special instructions, test-out the cart, and simulate safe UPI payments!
+                  </p>
+                </div>
+
+                <div className="border-t border-slate-100 pt-4 space-y-3">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-600">
+                    <span className="w-4 h-4 bg-emerald-500/10 text-emerald-600 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                    <span>Browse food items categorized neatly (Starters, Breads, Main Course)</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs text-slate-600">
+                    <span className="w-4 h-4 bg-emerald-500/10 text-emerald-600 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                    <span>Add customized items to cart & see real-time tax/price calculations</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs text-slate-600">
+                    <span className="w-4 h-4 bg-emerald-500/10 text-emerald-600 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                    <span>Simulate UPI checkout & receive real-time order tracking status updates</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 space-y-3">
+                <a
+                  href={CUSTOMER_DEMO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#FF5C35] hover:bg-[#E6431D] text-white font-black font-display py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-orange-500/20 active:scale-95"
+                >
+                  Launch Customer Demo
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <p className="text-center text-[10px] text-slate-400 font-mono leading-none">
+                  💡 Tip: Open this link on your phone for the best visual experience!
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Restaurant Owner/Admin Demo */}
+            <div className="bg-slate-950 text-white border border-slate-800 hover:border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl hover:-translate-y-1 transition-all relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-800/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="space-y-6">
+                <div className="w-12 h-12 bg-slate-900 text-[#FF5C35] rounded-2xl flex items-center justify-center font-bold text-2xl shadow-sm border border-slate-800">
+                  🖥️
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-display font-extrabold text-white text-xl">Restaurant Owner Admin Console</h3>
+                    <span className="bg-brand-500/20 text-brand-400 border border-brand-500/30 font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Live Control</span>
+                  </div>
+                  <p className="text-slate-400 text-xs mt-2 leading-relaxed">
+                    This is your control command panel. See table orders appear in real-time, click to accept/reject tickets, change food prices, toggle item stock status, view active table queues, and print out daily automated tax spreadsheets.
+                  </p>
+                </div>
+
+                <div className="border-t border-slate-800 pt-4 space-y-3">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-400">
+                    <span className="w-4 h-4 bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                    <span>Real-time Kitchen Display System (KDS) for kitchen coordinators</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs text-slate-400">
+                    <span className="w-4 h-4 bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                    <span>Manage item catalog (Instant price changes & item toggle on/off)</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs text-slate-400">
+                    <span className="w-4 h-4 bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                    <span>UPI transaction audit logs, daily sales charts, & compliance logs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 space-y-3">
+                <a
+                  href={ADMIN_DEMO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-slate-100 hover:bg-white text-slate-950 font-black font-display py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-white/5 active:scale-95"
+                >
+                  Launch Merchant Console
+                  <ArrowRight className="w-4 h-4 text-slate-950" />
+                </a>
+                <p className="text-center text-[10px] text-slate-500 font-mono leading-none">
+                  💡 Tip: Open this link on your Laptop or Tablet for the best layout!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Connected Flow Explanation Alert */}
+          <div className="mt-12 bg-orange-50 border border-orange-100/60 p-4 rounded-2xl max-w-3xl mx-auto flex gap-3 text-xs text-slate-700 shadow-sm">
+            <span className="text-xl">✨</span>
+            <div>
+              <p className="font-bold text-slate-900">How to test the connected flow:</p>
+              <p className="text-slate-600 mt-1 leading-relaxed">
+                Open both demo links in separate windows (or side-by-side). Place an order from the <strong>Customer Ordering App</strong>. You will see it instantly flash up with a sound cue on the <strong>Restaurant Owner Admin Console</strong>! Change the status to 'Preparing' on the Admin console and watch the customer app status update automatically. It is that smart!
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
