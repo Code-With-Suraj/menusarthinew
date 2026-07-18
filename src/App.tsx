@@ -11,6 +11,15 @@ import ConversationalSarthi from './components/ConversationalSarthi';
 import LiveAppGallery from './components/LiveAppGallery';
 import { DemoBooking } from './types';
 
+// ============================================================================
+// BRAND CONFIGURATION
+// ============================================================================
+// To add your professional logo, simply paste your hosted image URL here!
+// E.g., 'https://yourdomain.com/logo.png'. If left empty, it renders an elegant,
+// premium custom-designed vector SVG logo representing MenuSarthi.
+const PROFESSIONAL_LOGO_URL = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWGUCurqhLZ-7V2-wcMFhgoNymvoazjkrBpPa6TJ3lR445ivycZcueMpdGY8S7iQArzZ1KuotJHBPUaOO9YRnayLvNXkqJa1LKtGS1xVxFYqyk9wPiwwgzj2V5-fGk3TX_BmgPO5Qrlnt9w-vdrPrszIMntaPA0uEKbQn3Y9zdwE2sHyQkvqhjFbdXqyxP/s1600-rw/Logo.png';
+// ============================================================================
+
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -113,8 +122,24 @@ export default function App() {
           
           {/* Logo Brand */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-[#FF5C35] rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-orange-200/50 group-hover:scale-105 transition-transform">
-              M
+            <div className="w-11 h-11 bg-gradient-to-tr from-[#FF5C35] to-orange-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-all overflow-hidden border border-orange-400/20">
+              {PROFESSIONAL_LOGO_URL ? (
+                <img 
+                  src={PROFESSIONAL_LOGO_URL} 
+                  alt="MenuSarthi" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <svg className="w-6.5 h-6.5 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 70H80C80 70 75 45 50 45C25 45 20 70 20 70Z" fill="currentColor" />
+                  <path d="M15 75H85" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+                  <path d="M50 20V35" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                  <path d="M38 23V32" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                  <path d="M62 23V32" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                  <circle cx="50" cy="40" r="5" fill="currentColor" />
+                </svg>
+              )}
             </div>
             <div>
               <span className="font-display font-black text-[#1A1A1A] text-2xl tracking-tight leading-none block">
@@ -1203,8 +1228,21 @@ export default function App() {
           
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-[#FF5C35] rounded-xl flex items-center justify-center text-white font-black font-display text-xl">
-                M
+              <div className="w-9 h-9 bg-gradient-to-tr from-[#FF5C35] to-orange-500 rounded-xl flex items-center justify-center text-white overflow-hidden border border-orange-400/20">
+                {PROFESSIONAL_LOGO_URL ? (
+                  <img 
+                    src={PROFESSIONAL_LOGO_URL} 
+                    alt="MenuSarthi" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <svg className="w-5.5 h-5.5 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 70H80C80 70 75 45 50 45C25 45 20 70 20 70Z" fill="currentColor" />
+                    <path d="M15 75H85" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+                    <circle cx="50" cy="40" r="5" fill="currentColor" />
+                  </svg>
+                )}
               </div>
               <span className="font-display font-bold text-white text-lg tracking-tight">Menu<span className="text-[#FF5C35]">Sarthi</span></span>
             </div>
