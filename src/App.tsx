@@ -824,6 +824,165 @@ export default function App() {
         </div>
       </section>
 
+      {/* NEW: 8.5 SMART PAYMENT SETTLEMENT MODES */}
+      <section id="payment-modes" className="py-20 px-4 bg-gradient-to-b from-white to-orange-50/40 scroll-mt-20 border-t border-b border-slate-100">
+        <div className="max-w-7xl mx-auto">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="inline-flex items-center gap-1.5 bg-orange-100 text-[#FF5C35] text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider font-display">
+              💳 Dual Payment Modes / भुगतान के विकल्प
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-black text-slate-900 tracking-tight leading-tight">
+              Direct UPI or Automated Razorpay
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              We understand restaurant finance. That is why MenuSarthi offers both free manual payments and premium automated settlement paths. Select the model that fits your operations perfectly.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+            
+            {/* Option 1: Direct UPI (0% commission) */}
+            <div className="bg-white border-2 border-slate-200 hover:border-slate-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl shadow-slate-100/40 relative overflow-hidden group transition-all">
+              <div className="space-y-6">
+                <div className="flex justify-between items-start">
+                  <div className="w-12 h-12 bg-orange-100 text-[#FF5C35] rounded-2xl flex items-center justify-center font-bold text-2xl border border-orange-200/20">
+                    📲
+                  </div>
+                  <span className="bg-emerald-100 text-emerald-800 font-bold text-[11px] px-3 py-1 rounded-full border border-emerald-200">
+                    🔥 0% commission (Life-Time Free)
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-extrabold text-slate-900 text-xl flex items-center gap-2">
+                    Direct Owner UPI QR
+                    <span className="text-xs text-slate-400 font-normal">| डायरेक्ट UPI भुगतान</span>
+                  </h3>
+                  <p className="text-slate-500 text-xs mt-2 leading-relaxed">
+                    A zero-fee setup designed for owners who want to avoid paying high transaction commissions to payment gateway companies. Customers transfer money directly from their app to your bank.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl space-y-3">
+                  <div className="flex items-center justify-between text-xs border-b border-slate-200/60 pb-2">
+                    <span className="text-slate-500 font-semibold">Payment Fee / गेटवे शुल्क:</span>
+                    <strong className="text-emerald-600 text-sm">₹0 (Absolutely Free / कोई शुल्क नहीं)</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs pb-1">
+                    <span className="text-slate-500 font-semibold">Verification / वेरिफिकेशन:</span>
+                    <strong className="text-[#FF5C35] bg-orange-50 px-2.5 py-0.5 rounded text-[11px]">Manual Verification Required</strong>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">How it works / यह कैसे काम करता है:</h4>
+                  <div className="space-y-2.5">
+                    <div className="flex gap-2.5 text-xs text-slate-600">
+                      <span className="w-4 h-4 bg-emerald-500/10 text-emerald-600 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">1</span>
+                      <span>Customer clicks &apos;Pay Now&apos;, scanning your custom shop UPI ID directly.</span>
+                    </div>
+                    <div className="flex gap-2.5 text-xs text-slate-600">
+                      <span className="w-4 h-4 bg-emerald-500/10 text-emerald-600 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">2</span>
+                      <span>Money instantly arrives directly in your shop bank account (GPay/PhonePe/Paytm).</span>
+                    </div>
+                    <div className="flex gap-2.5 text-xs text-slate-600">
+                      <span className="w-4 h-4 bg-orange-500/10 text-[#FF5C35] rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">⚠️</span>
+                      <span className="font-semibold text-[#FF5C35]">Staff confirms the payment screenshot manually at counter, just like you have been doing up to now! (आपको काउंटर पर पेमेंट स्क्रीनशॉट खुद चेक करना होगा)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-slate-100 mt-6">
+                <div className="text-[11px] text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                  💡 <strong>Best For:</strong> Cafes, Dhabas, or smaller bakeries looking to minimize payment fees and operating with an active counter staff who can handle screenshot validation.
+                </div>
+              </div>
+            </div>
+
+            {/* Option 2: Razorpay Automated (Recommended) */}
+            <div className="bg-slate-950 text-white border-2 border-[#FF5C35] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden group transition-all">
+              <div className="absolute top-0 right-0 bg-gradient-to-l from-[#FF5C35] to-orange-600 text-white text-[9px] font-black uppercase tracking-wider px-3.5 py-1 rounded-bl-2xl shadow-sm flex items-center gap-1 font-display">
+                ⚡ RECOMMENDED / ऑटोमैटिक कन्फर्मेशन
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex justify-between items-start pt-2">
+                  <div className="w-12 h-12 bg-slate-900 text-[#FF5C35] rounded-2xl flex items-center justify-center font-bold text-2xl border border-slate-800">
+                    💳
+                  </div>
+                  <span className="bg-orange-500/15 text-[#FF5C35] border border-[#FF5C35]/30 font-bold text-[11px] px-3 py-1 rounded-full">
+                    Automated Confirmation System
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-display font-extrabold text-white text-xl flex items-center gap-2">
+                    Razorpay Integration
+                    <span className="text-xs text-slate-400 font-normal">| ऑटोमैटिक पेमेंट गेटवे</span>
+                  </h3>
+                  <p className="text-slate-400 text-xs mt-2 leading-relaxed">
+                    A completely hands-free automatic billing system. Payments are processed through India&apos;s premium gateway Razorpay, supporting instant UPI, Credit/Debit cards, Wallets, and Netbanking.
+                  </p>
+                </div>
+
+                <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl space-y-3">
+                  <div className="flex items-center justify-between text-xs border-b border-slate-800 pb-2">
+                    <span className="text-slate-400 font-semibold">Payment Fee / गेटवे शुल्क:</span>
+                    <strong className="text-yellow-400 text-sm">Standard ~2% Gateway Charges Apply</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs pb-1">
+                    <span className="text-slate-400 font-semibold">Verification / वेरिफिकेशन:</span>
+                    <strong className="text-emerald-400 bg-emerald-500/15 px-2.5 py-0.5 rounded text-[11px] flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      100% Fully Automatic (No Manual Verification)
+                    </strong>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                  <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">How it works / यह कैसे काम करता है:</h4>
+                  <div className="space-y-2.5 text-slate-300">
+                    <div className="flex gap-2.5 text-xs">
+                      <span className="w-4 h-4 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">1</span>
+                      <span>Customer pays securely inside the browser using standard UPI apps, Debit cards, or Wallets.</span>
+                    </div>
+                    <div className="flex gap-2.5 text-xs">
+                      <span className="w-4 h-4 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">2</span>
+                      <span>Razorpay server validates the payment status instantly in real-time.</span>
+                    </div>
+                    <div className="flex gap-2.5 text-xs">
+                      <span className="w-4 h-4 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
+                      <span className="font-semibold text-emerald-400">Order is approved automatically! KDS screen flashes and kitchen tickets are triggered without touching any phone. (कोई स्क्रीनशॉट देखने की झंझट नहीं!)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-slate-800 mt-6">
+                <div className="text-[11px] text-slate-400 leading-relaxed bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                  💡 <strong>Best For:</strong> High-volume restaurants, cafes, and busy eateries receiving 50-200+ orders/day where manual screenshot validation during peak rush hour is impossible.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Quick Choice Summary Tip */}
+          <div className="mt-12 bg-orange-50 border border-orange-100 p-5 rounded-2xl max-w-3xl mx-auto flex gap-3 text-xs text-slate-700 shadow-xs">
+            <span className="text-xl">✨</span>
+            <div>
+              <p className="font-bold text-slate-900">Choose What Fits Your Budget / अपना पसंदीदा मॉडल चुनें:</p>
+              <p className="text-slate-600 mt-1 leading-relaxed">
+                If you want to save the 2% gateway commission fee, choose <strong>Direct Owner UPI QR</strong> and verify payments on your counter like always. If you want a 100% hands-free system with automatic order approval and zero human error, choose the <strong>Razorpay Integration (Recommended)</strong> option. You can even toggle between them anytime!
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* 9. INTERACTIVE ROI CALCULATOR SECTION */}
       <section className="py-16 px-4 bg-slate-900 text-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1468,8 +1627,8 @@ export default function App() {
               a: "Absolutely not! Guests simply scan the table QR code using their default phone camera or Google Lens. Your digital menu opens instantly inside their default browser (Safari, Chrome, etc.). They can order and pay directly without downloads."
             },
             {
-              q: "How do UPI payments settle into my restaurant account?",
-              a: "We link the system directly with your existing restaurant UPI VPA handle (e.g., merchant@ybl or owner@paytm). Payments from Google Pay, PhonePe, Paytm, or BHIM bypass third-party wallets entirely and transfer cash straight into your bank instantly. No 2% merchant commission fees!"
+              q: "How do payments work in MenuSarthi? (MenuSarthi में पेमेंट सिस्टम कैसे काम करता है?)",
+              a: "We offer two flexible options so you can choose what works best for your restaurant:\n\n1. Direct UPI to Owner QR (0% Commission): We link the customer app directly with your existing restaurant UPI ID (VPA). When a customer pays, money goes 100% directly to your bank account with ZERO gateway fees. Since no third-party gateway is involved, your staff manually verifies the payment screenshot at the counter, exactly like you have been doing up to now.\n\n2. Razorpay Integration (Automatic Confirmation - Recommended): For busy restaurants, we integrate your Razorpay gateway. Customers can pay via UPI, Credit/Debit Cards, or Wallets, and the payment status is confirmed automatically in real-time. The kitchen order fires instantly without any manual verification, saving valuable staff time. Standard ~2% payment gateway charges apply.\n\n(MenuSarthi में हमने आपके लिए दो बेहद आसान पेमेंट विकल्प दिए हैं:\n\n1. डायरेक्ट UPI भुगतान (0% कमीशन): कस्टमर सीधे आपके बैंक खाते में UPI से भुगतान करता है। इसमें कोई पेमेंट गेटवे शामिल नहीं होता, इसलिए आपको कोई एक्स्ट्रा चार्ज (0% शुल्क) नहीं देना होता। इसमें पेमेंट का स्क्रीनशॉट या रसीद आपके स्टाफ को काउंटर पर खुद ही मैन्युअल चेक करना होगा, जैसे आप अब तक दुकान पर करते आए हैं।\n\n2. रेज़रपे इंटीग्रेशन (ऑटोमैटिक कन्फर्मेशन - रिकमेंडेड): अगर आप ऑटोमैटिक सिस्टम चाहते हैं, तो रेज़रपे गेटवे कनेक्ट हो जाता है। कस्टमर UPI, कार्ड या वॉलेट से पेमेंट करता है, और सिस्टम तुरंत पेमेंट कन्फर्म कर लेता है। बिना किसी मैन्युअल स्क्रीनशॉट वेरिफिकेशन के, ऑर्डर सीधे किचन में चला जाता है। इसमें गेटवे का स्टैंडर्ड ~2% चार्ज लगता है।)"
             },
             {
               q: "Is there any expensive hosting fees or server maintenance?",
