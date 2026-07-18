@@ -46,6 +46,9 @@ export default function App() {
   const [roiTables, setRoiTables] = useState<number>(15);
   const [roiStaff, setRoiStaff] = useState<number>(4);
 
+  // Billing flow toggle state
+  const [billingFlowTab, setBillingFlowTab] = useState<'prepaid' | 'postpaid'>('prepaid');
+
   // Load bookings
   useEffect(() => {
     const saved = localStorage.getItem('menusarthi_bookings');
@@ -977,6 +980,154 @@ export default function App() {
               <p className="text-slate-600 mt-1 leading-relaxed">
                 If you want to save the 2% gateway commission fee, choose <strong>Direct Owner UPI QR</strong> and verify payments on your counter like always. If you want a 100% hands-free system with automatic order approval and zero human error, choose the <strong>Razorpay Integration (Recommended)</strong> option. You can even toggle between them anytime!
               </p>
+            </div>
+          </div>
+
+          {/* NEW: 8.6 FLEXIBLE BILLING WORKFLOWS (PRE-PAID VS POST-PAID) */}
+          <div className="mt-20 border-t border-slate-200/60 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+              <span className="bg-orange-100 text-[#FF5C35] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full font-display">
+                ⚙️ BILLING FLEXIBILITY / पेमेंट कब लें?
+              </span>
+              <h3 className="text-2xl sm:text-4xl font-display font-black text-slate-900 tracking-tight">
+                Order First or Pay First? Choose Your Flow!
+              </h3>
+              <p className="text-slate-500 text-xs sm:text-sm">
+                We have given restaurant owners complete control! Set up your restaurant to collect payment immediately after ordering or after dining. Change it anytime from your merchant panel in 1-click.
+              </p>
+            </div>
+
+            {/* Interactive Billing Flow Switcher */}
+            <div className="max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-100/60">
+              
+              {/* Selector Tabs */}
+              <div className="flex p-1 bg-slate-100 rounded-2xl max-w-md mx-auto mb-8 border border-slate-200/50">
+                <button
+                  onClick={() => setBillingFlowTab('prepaid')}
+                  className={`flex-1 py-3 text-xs font-bold rounded-xl transition-all font-display flex items-center justify-center gap-1.5 cursor-pointer ${
+                    billingFlowTab === 'prepaid'
+                      ? 'bg-slate-900 text-white shadow-md'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  💵 Pre-Paid Mode
+                  <span className="text-[10px] opacity-75 font-normal">(पहले पेमेंट)</span>
+                </button>
+                <button
+                  onClick={() => setBillingFlowTab('postpaid')}
+                  className={`flex-1 py-3 text-xs font-bold rounded-xl transition-all font-display flex items-center justify-center gap-1.5 cursor-pointer ${
+                    billingFlowTab === 'postpaid'
+                      ? 'bg-[#FF5C35] text-white shadow-md'
+                      : 'text-slate-600 hover:text-[#FF5C35]'
+                  }`}
+                >
+                  🍽️ Post-Paid Mode
+                  <span className="text-[10px] opacity-90 font-normal">(खाने के बाद पेमेंट)</span>
+                </button>
+              </div>
+
+              {/* Dynamic View Card */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Visual Simulation Display */}
+                <div className="md:col-span-5 bg-slate-950 text-white rounded-2xl p-6 border border-slate-800 space-y-4 shadow-inner relative overflow-hidden">
+                  <div className="absolute top-2 right-2 flex items-center gap-1 bg-slate-900 px-2 py-0.5 rounded-full border border-slate-800">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="text-[9px] text-slate-400 font-mono font-bold">Admin Panel Live</span>
+                  </div>
+
+                  <p className="text-[10px] text-slate-500 font-mono">MERCHANT CONTROL PANEL</p>
+                  
+                  <div className="space-y-2 border-b border-slate-800 pb-3">
+                    <label className="text-xs font-bold text-slate-400">Selected Billing Rule / पेमेंट नियम:</label>
+                    <div className="flex items-center justify-between bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+                      <span className="text-xs text-white font-semibold">
+                        {billingFlowTab === 'prepaid' ? '💳 Pay to Place Order' : '🍽️ Dine In, Pay at End'}
+                      </span>
+                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-mono px-2 py-0.5 rounded-md font-bold">
+                        ACTIVE
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5">
+                    <p className="text-[10px] text-slate-500 font-mono">CUSTOMER APP PREVIEW / ग्राहक का मोबाइल</p>
+                    {billingFlowTab === 'prepaid' ? (
+                      <div className="space-y-2 bg-slate-900/40 p-3 rounded-xl border border-slate-800/80">
+                        <div className="flex justify-between text-xs text-slate-300 font-bold border-b border-slate-800 pb-1.5">
+                          <span>Cart (Table 4)</span>
+                          <span>₹280.00</span>
+                        </div>
+                        <p className="text-[10px] text-[#FF5C35] font-semibold bg-orange-500/10 p-2 rounded-lg leading-normal font-sans">
+                          ⚠️ Payment required to place order! (ऑर्डर किचन में भेजने के लिए तुरंत पेमेंट करें)
+                        </p>
+                        <button className="w-full bg-[#FF5C35] text-white py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 pointer-events-none">
+                          🔒 Pay & Place Order (₹280)
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="space-y-2 bg-slate-900/40 p-3 rounded-xl border border-slate-800/80">
+                        <div className="flex justify-between text-xs text-slate-300 font-bold border-b border-slate-800 pb-1.5">
+                          <span>Running Bill (Table 4)</span>
+                          <span>₹850.00</span>
+                        </div>
+                        <p className="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 p-2 rounded-lg leading-normal font-sans">
+                          ✓ Orders sent straight to kitchen. Pay after dining! (ऑर्डर सीधे किचन में, पेमेंट खाना खाने के बाद!)
+                        </p>
+                        <button className="w-full bg-slate-800 text-slate-300 py-1.5 rounded-lg text-[9px] font-bold flex items-center justify-center gap-1 border border-slate-700 pointer-events-none">
+                          ➕ Order More Items
+                        </button>
+                        <button className="w-full bg-[#FF5C35] text-white py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 pointer-events-none">
+                          💳 Ask for Final Bill (₹850)
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Conceptual breakdown text */}
+                <div className="md:col-span-7 space-y-4 text-left">
+                  <h4 className="text-lg font-bold text-slate-900 flex items-center gap-2 font-display">
+                    {billingFlowTab === 'prepaid' ? '💳 Pre-Paid Flow (पहले पेमेंट, फिर खाना)' : '🍽️ Post-Paid Flow (पहले खाना, बाद में पेमेंट)'}
+                  </h4>
+                  
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {billingFlowTab === 'prepaid' 
+                      ? 'इस मोड में ग्राहक जैसे ही टेबल पर QR स्कैन करके कार्ट में आइटम ऐड करता है, उसे ऑर्डर प्लेस करने से पहले भुगतान (UPI या कार्ड) करना पड़ता है। पेमेंट मिलते ही किचन में टिकट ऑटोमैटिकली प्रिंट हो जाता है। यह मोड सेल्फ़-सर्विस काउंटर्स, फ़ास्ट फ़ूड कार्नर्स, और भीड़भाड़ वाले कैफ़े के लिए सर्वोत्तम है ताकि कोई कस्टमर बिना बिल चुकाए न जा सके।'
+                      : 'इस मोड में ग्राहक आराम से बैठकर खाना ऑर्डर कर सकता है। बिना किसी रुकावट के ऑर्डर सीधे शेफ के पास जाता है। ग्राहक खाना खाते-खाते बीच में कभी भी एक्स्ट्रा नान, कोल्ड ड्रिंक, या डेजर्ट ऑर्डर कर सकता है। भोजन समाप्त होने के बाद, वे मोबाइल से सीधे टोटल संचित बिल का एक साथ भुगतान कर देते हैं। यह डाइन-इन फैमिली रेस्टोरेंट के लिए सबसे बेस्ट है।'
+                    }
+                  </p>
+
+                  <div className="bg-slate-50 border border-slate-200/60 p-4 rounded-xl space-y-2.5">
+                    <p className="text-xs font-bold text-slate-950 uppercase tracking-wide font-display">💡 Operational Benefits / संचालन के फायदे:</p>
+                    <ul className="space-y-1.5 text-xs text-slate-600">
+                      {billingFlowTab === 'prepaid' ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-emerald-600 font-bold">✓</span>
+                            <span><strong>Zero Losses:</strong> बिना पेमेंट किए ग्राहक जाने या ऑर्डर कैंसल करने का नुकसान बिल्कुल ख़त्म।</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-emerald-600 font-bold">✓</span>
+                            <span><strong>Fast Table Rotation:</strong> पेमेंट पहले होने के कारण ग्राहक खाना खत्म होते ही उठ जाता है, वेटिंग ख़त्म होती है।</span>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#FF5C35] font-bold">✓</span>
+                            <span><strong>Higher Order Value:</strong> बार-बार पेमेंट का दबाव न होने के कारण ग्राहक 18% से 25% ज़्यादा ऑर्डर करता है।</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#FF5C35] font-bold">✓</span>
+                            <span><strong>Premium Experience:</strong> ग्राहकों को क्लासिक रेस्टोरेंट सर्विस मिलती है जिससे आपके कैफ़े की प्रतिष्ठा बढ़ती है।</span>
+                          </li>
+                        </>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
