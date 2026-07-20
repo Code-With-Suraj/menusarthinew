@@ -6,7 +6,6 @@ import {
   Send, Calendar, ChevronRight, Phone, Clock, Landmark, AlertTriangle, 
   Sparkle, ShieldCheck, ChevronDown, Sparkles as SparklesIcon 
 } from 'lucide-react';
-import InteractivePlayground from './components/InteractivePlayground';
 import ConversationalSarthi from './components/ConversationalSarthi';
 import LiveAppGallery from './components/LiveAppGallery';
 import { DemoBooking } from './types';
@@ -48,6 +47,7 @@ export default function App() {
 
   // Billing flow toggle state
   const [billingFlowTab, setBillingFlowTab] = useState<'prepaid' | 'postpaid'>('prepaid');
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   // Load bookings
   useEffect(() => {
@@ -169,7 +169,7 @@ export default function App() {
               Live Demo <span className="bg-orange-100 text-[#FF5C35] text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse font-display">New</span>
             </a>
             <a href="#app-screenshots" className="hover:text-slate-900 transition-colors">Live App Tour</a>
-            <a href="#playground" className="hover:text-slate-900 transition-colors">Sandbox Demo</a>
+            <a href="#demo-video" className="hover:text-slate-900 transition-colors">Demo Video 🎥</a>
             <a href="#pricing" className="hover:text-slate-900 transition-colors">Pricing</a>
           </nav>
 
@@ -205,7 +205,7 @@ export default function App() {
               Live Demo ⚡ <span className="bg-orange-100 text-[#FF5C35] text-[9px] px-1.5 py-0.5 rounded-full">Try Now</span>
             </a>
             <a href="#app-screenshots" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Live App Tour</a>
-            <a href="#playground" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Sandbox Demo</a>
+            <a href="#demo-video" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Demo Video 🎥</a>
             <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Pricing</a>
             <div className="pt-2 grid grid-cols-2 gap-3">
               <a 
@@ -504,7 +504,7 @@ export default function App() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="font-display font-extrabold text-slate-900 text-xl">Customer Ordering App</h3>
-                    <span className="bg-green-100 text-green-700 font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Live Sandbox</span>
+                    <span className="bg-green-100 text-green-700 font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">Active System</span>
                   </div>
                   <p className="text-slate-500 text-xs mt-2 leading-relaxed">
                     This is what your diners see when they scan your tabletop QR. Browse a beautiful Indian restaurant menu with food tags, customize portion sizes, add special instructions, test-out the cart, and simulate safe UPI payments!
@@ -737,9 +737,53 @@ export default function App() {
       {/* 6.5 LIVE APP INTERFACE TOUR */}
       <LiveAppGallery />
 
-      {/* 7. PLAYGROUND SIMULATOR (OUR SPECTACULAR INTERACTIVE SECTION) */}
-      <section id="playground" className="border-t border-b border-slate-200/80 bg-slate-100/40">
-        <InteractivePlayground />
+      {/* 7. SYSTEM DEMO VIDEO SECTION */}
+      <section id="demo-video" className="py-20 px-4 bg-slate-900 text-white scroll-mt-20 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
+            <span className="bg-brand-500/10 text-brand-400 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider font-mono border border-brand-500/20">
+              🎥 Watch System Walkthrough Video
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-black text-white tracking-tight leading-tight">
+              See MenuSarthi In Real Operations
+            </h2>
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Watch this brief, professional walkthrough to see how MenuSarthi simplifies tabletop ordering, processes direct bank UPI payments, and triggers automatic KDS tickets for your kitchen team.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-slate-800 bg-slate-950 ring-1 ring-white/10 group">
+              <iframe
+                id="demo-youtube-video"
+                src="https://www.youtube.com/embed/48ihNrXTGVE"
+                title="MenuSarthi Professional System Walkthrough Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full border-0 absolute inset-0"
+              />
+            </div>
+            
+            {/* Quick value tags beneath the video */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 text-center">
+              <div className="p-4 bg-slate-800/40 rounded-2xl border border-slate-800/80">
+                <span className="text-2xl block mb-2">⚡</span>
+                <h4 className="font-bold text-sm text-slate-100">Hands-Free QR Ordering</h4>
+                <p className="text-slate-400 text-[11px] mt-1 leading-relaxed">How table QR scanning eliminates manual order pad queues.</p>
+              </div>
+              <div className="p-4 bg-slate-800/40 rounded-2xl border border-slate-800/80">
+                <span className="text-2xl block mb-2">💰</span>
+                <h4 className="font-bold text-sm text-slate-100">0% Commission UPI</h4>
+                <p className="text-slate-400 text-[11px] mt-1 leading-relaxed">Watch funds transfer directly to your business bank account instantly.</p>
+              </div>
+              <div className="p-4 bg-slate-800/40 rounded-2xl border border-slate-800/80">
+                <span className="text-2xl block mb-2">🖥️</span>
+                <h4 className="font-bold text-sm text-slate-100">Real-Time Kitchen Feed</h4>
+                <p className="text-slate-400 text-[11px] mt-1 leading-relaxed">Watch instant status synchronizations between guests and your chef.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 8. DETAILED FEATURES SECTION */}
@@ -833,7 +877,7 @@ export default function App() {
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="inline-flex items-center gap-1.5 bg-orange-100 text-[#FF5C35] text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider font-display">
-              💳 Dual Payment Modes / भुगतान के विकल्प
+              💳 Dual Payment Modes
             </span>
             <h2 className="text-3xl sm:text-5xl font-display font-black text-slate-900 tracking-tight leading-tight">
               Direct UPI or Automated Razorpay
@@ -860,7 +904,6 @@ export default function App() {
                 <div>
                   <h3 className="font-display font-extrabold text-slate-900 text-xl flex items-center gap-2">
                     Direct Owner UPI QR
-                    <span className="text-xs text-slate-400 font-normal">| डायरेक्ट UPI भुगतान</span>
                   </h3>
                   <p className="text-slate-500 text-xs mt-2 leading-relaxed">
                     A zero-fee setup designed for owners who want to avoid paying high transaction commissions to payment gateway companies. Customers transfer money directly from their app to your bank.
@@ -869,17 +912,17 @@ export default function App() {
 
                 <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl space-y-3">
                   <div className="flex items-center justify-between text-xs border-b border-slate-200/60 pb-2">
-                    <span className="text-slate-500 font-semibold">Payment Fee / गेटवे शुल्क:</span>
-                    <strong className="text-emerald-600 text-sm">₹0 (Absolutely Free / कोई शुल्क नहीं)</strong>
+                    <span className="text-slate-500 font-semibold">Payment Fee:</span>
+                    <strong className="text-emerald-600 text-sm">₹0 (Absolutely Free)</strong>
                   </div>
                   <div className="flex items-center justify-between text-xs pb-1">
-                    <span className="text-slate-500 font-semibold">Verification / वेरिफिकेशन:</span>
+                    <span className="text-slate-500 font-semibold">Verification:</span>
                     <strong className="text-[#FF5C35] bg-orange-50 px-2.5 py-0.5 rounded text-[11px]">Manual Verification Required</strong>
                   </div>
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">How it works / यह कैसे काम करता है:</h4>
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">How it works:</h4>
                   <div className="space-y-2.5">
                     <div className="flex gap-2.5 text-xs text-slate-600">
                       <span className="w-4 h-4 bg-emerald-500/10 text-emerald-600 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">1</span>
@@ -891,7 +934,7 @@ export default function App() {
                     </div>
                     <div className="flex gap-2.5 text-xs text-slate-600">
                       <span className="w-4 h-4 bg-orange-500/10 text-[#FF5C35] rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">⚠️</span>
-                      <span className="font-semibold text-[#FF5C35]">Staff confirms the payment screenshot manually at counter, just like you have been doing up to now! (आपको काउंटर पर पेमेंट स्क्रीनशॉट खुद चेक करना होगा)</span>
+                      <span className="font-semibold text-[#FF5C35]">Staff confirms the payment screenshot manually at the counter, exactly like you do right now.</span>
                     </div>
                   </div>
                 </div>
@@ -907,7 +950,7 @@ export default function App() {
             {/* Option 2: Razorpay Automated (Recommended) */}
             <div className="bg-slate-950 text-white border-2 border-[#FF5C35] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden group transition-all">
               <div className="absolute top-0 right-0 bg-gradient-to-l from-[#FF5C35] to-orange-600 text-white text-[9px] font-black uppercase tracking-wider px-3.5 py-1 rounded-bl-2xl shadow-sm flex items-center gap-1 font-display">
-                ⚡ RECOMMENDED / ऑटोमैटिक कन्फर्मेशन
+                ⚡ RECOMMENDED
               </div>
 
               <div className="space-y-6">
@@ -923,7 +966,6 @@ export default function App() {
                 <div>
                   <h3 className="font-display font-extrabold text-white text-xl flex items-center gap-2">
                     Razorpay Integration
-                    <span className="text-xs text-slate-400 font-normal">| ऑटोमैटिक पेमेंट गेटवे</span>
                   </h3>
                   <p className="text-slate-400 text-xs mt-2 leading-relaxed">
                     A completely hands-free automatic billing system. Payments are processed through India&apos;s premium gateway Razorpay, supporting instant UPI, Credit/Debit cards, Wallets, and Netbanking.
@@ -932,11 +974,11 @@ export default function App() {
 
                 <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl space-y-3">
                   <div className="flex items-center justify-between text-xs border-b border-slate-800 pb-2">
-                    <span className="text-slate-400 font-semibold">Payment Fee / गेटवे शुल्क:</span>
+                    <span className="text-slate-400 font-semibold">Payment Fee:</span>
                     <strong className="text-yellow-400 text-sm">Standard ~2% Gateway Charges Apply</strong>
                   </div>
                   <div className="flex items-center justify-between text-xs pb-1">
-                    <span className="text-slate-400 font-semibold">Verification / वेरिफिकेशन:</span>
+                    <span className="text-slate-400 font-semibold">Verification:</span>
                     <strong className="text-emerald-400 bg-emerald-500/15 px-2.5 py-0.5 rounded text-[11px] flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                       100% Fully Automatic (No Manual Verification)
@@ -945,7 +987,7 @@ export default function App() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">How it works / यह कैसे काम करता है:</h4>
+                  <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider">How it works:</h4>
                   <div className="space-y-2.5 text-slate-300">
                     <div className="flex gap-2.5 text-xs">
                       <span className="w-4 h-4 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">1</span>
@@ -957,7 +999,7 @@ export default function App() {
                     </div>
                     <div className="flex gap-2.5 text-xs">
                       <span className="w-4 h-4 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-[10px] shrink-0 font-bold">✓</span>
-                      <span className="font-semibold text-emerald-400">Order is approved automatically! KDS screen flashes and kitchen tickets are triggered without touching any phone. (कोई स्क्रीनशॉट देखने की झंझट नहीं!)</span>
+                      <span className="font-semibold text-emerald-400">Order is approved automatically! KDS screen flashes and kitchen tickets are triggered without touching any phone.</span>
                     </div>
                   </div>
                 </div>
@@ -976,7 +1018,7 @@ export default function App() {
           <div className="mt-12 bg-orange-50 border border-orange-100 p-5 rounded-2xl max-w-3xl mx-auto flex gap-3 text-xs text-slate-700 shadow-xs">
             <span className="text-xl">✨</span>
             <div>
-              <p className="font-bold text-slate-900">Choose What Fits Your Budget / अपना पसंदीदा मॉडल चुनें:</p>
+              <p className="font-bold text-slate-900">Choose What Fits Your Budget:</p>
               <p className="text-slate-600 mt-1 leading-relaxed">
                 If you want to save the 2% gateway commission fee, choose <strong>Direct Owner UPI QR</strong> and verify payments on your counter like always. If you want a 100% hands-free system with automatic order approval and zero human error, choose the <strong>Razorpay Integration (Recommended)</strong> option. You can even toggle between them anytime!
               </p>
@@ -987,7 +1029,7 @@ export default function App() {
           <div className="mt-20 border-t border-slate-200/60 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
               <span className="bg-orange-100 text-[#FF5C35] text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full font-display">
-                ⚙️ BILLING FLEXIBILITY / पेमेंट कब लें?
+                ⚙️ BILLING FLEXIBILITY
               </span>
               <h3 className="text-2xl sm:text-4xl font-display font-black text-slate-900 tracking-tight">
                 Order First or Pay First? Choose Your Flow!
@@ -1011,7 +1053,7 @@ export default function App() {
                   }`}
                 >
                   💵 Pre-Paid Mode
-                  <span className="text-[10px] opacity-75 font-normal">(पहले पेमेंट)</span>
+                  <span className="text-[10px] opacity-75 font-normal">(Pay First)</span>
                 </button>
                 <button
                   onClick={() => setBillingFlowTab('postpaid')}
@@ -1022,7 +1064,7 @@ export default function App() {
                   }`}
                 >
                   🍽️ Post-Paid Mode
-                  <span className="text-[10px] opacity-90 font-normal">(खाने के बाद पेमेंट)</span>
+                  <span className="text-[10px] opacity-90 font-normal">(Pay After Dining)</span>
                 </button>
               </div>
 
@@ -1038,7 +1080,7 @@ export default function App() {
                   <p className="text-[10px] text-slate-500 font-mono">MERCHANT CONTROL PANEL</p>
                   
                   <div className="space-y-2 border-b border-slate-800 pb-3">
-                    <label className="text-xs font-bold text-slate-400">Selected Billing Rule / पेमेंट नियम:</label>
+                    <label className="text-xs font-bold text-slate-400">Selected Billing Rule:</label>
                     <div className="flex items-center justify-between bg-slate-900 p-2.5 rounded-xl border border-slate-800">
                       <span className="text-xs text-white font-semibold">
                         {billingFlowTab === 'prepaid' ? '💳 Pay to Place Order' : '🍽️ Dine In, Pay at End'}
@@ -1050,7 +1092,7 @@ export default function App() {
                   </div>
 
                   <div className="space-y-2.5">
-                    <p className="text-[10px] text-slate-500 font-mono">CUSTOMER APP PREVIEW / ग्राहक का मोबाइल</p>
+                    <p className="text-[10px] text-slate-500 font-mono">CUSTOMER APP PREVIEW</p>
                     {billingFlowTab === 'prepaid' ? (
                       <div className="space-y-2 bg-slate-900/40 p-3 rounded-xl border border-slate-800/80">
                         <div className="flex justify-between text-xs text-slate-300 font-bold border-b border-slate-800 pb-1.5">
@@ -1058,7 +1100,7 @@ export default function App() {
                           <span>₹280.00</span>
                         </div>
                         <p className="text-[10px] text-[#FF5C35] font-semibold bg-orange-500/10 p-2 rounded-lg leading-normal font-sans">
-                          ⚠️ Payment required to place order! (ऑर्डर किचन में भेजने के लिए तुरंत पेमेंट करें)
+                          ⚠️ Payment required to place order! (Pay immediately to send order to the kitchen)
                         </p>
                         <button className="w-full bg-[#FF5C35] text-white py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 pointer-events-none">
                           🔒 Pay & Place Order (₹280)
@@ -1071,7 +1113,7 @@ export default function App() {
                           <span>₹850.00</span>
                         </div>
                         <p className="text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 p-2 rounded-lg leading-normal font-sans">
-                          ✓ Orders sent straight to kitchen. Pay after dining! (ऑर्डर सीधे किचन में, पेमेंट खाना खाने के बाद!)
+                          ✓ Orders sent straight to kitchen. Pay after dining! (Orders go to kitchen, pay after meal!)
                         </p>
                         <button className="w-full bg-slate-800 text-slate-300 py-1.5 rounded-lg text-[9px] font-bold flex items-center justify-center gap-1 border border-slate-700 pointer-events-none">
                           ➕ Order More Items
@@ -1087,39 +1129,39 @@ export default function App() {
                 {/* Conceptual breakdown text */}
                 <div className="md:col-span-7 space-y-4 text-left">
                   <h4 className="text-lg font-bold text-slate-900 flex items-center gap-2 font-display">
-                    {billingFlowTab === 'prepaid' ? '💳 Pre-Paid Flow (पहले पेमेंट, फिर खाना)' : '🍽️ Post-Paid Flow (पहले खाना, बाद में पेमेंट)'}
+                    {billingFlowTab === 'prepaid' ? '💳 Pre-Paid Flow (Pay first, eat later)' : '🍽️ Post-Paid Flow (Eat first, pay later)'}
                   </h4>
                   
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                     {billingFlowTab === 'prepaid' 
-                      ? 'इस मोड में ग्राहक जैसे ही टेबल पर QR स्कैन करके कार्ट में आइटम ऐड करता है, उसे ऑर्डर प्लेस करने से पहले भुगतान (UPI या कार्ड) करना पड़ता है। पेमेंट मिलते ही किचन में टिकट ऑटोमैटिकली प्रिंट हो जाता है। यह मोड सेल्फ़-सर्विस काउंटर्स, फ़ास्ट फ़ूड कार्नर्स, और भीड़भाड़ वाले कैफ़े के लिए सर्वोत्तम है ताकि कोई कस्टमर बिना बिल चुकाए न जा सके।'
-                      : 'इस मोड में ग्राहक आराम से बैठकर खाना ऑर्डर कर सकता है। बिना किसी रुकावट के ऑर्डर सीधे शेफ के पास जाता है। ग्राहक खाना खाते-खाते बीच में कभी भी एक्स्ट्रा नान, कोल्ड ड्रिंक, या डेजर्ट ऑर्डर कर सकता है। भोजन समाप्त होने के बाद, वे मोबाइल से सीधे टोटल संचित बिल का एक साथ भुगतान कर देते हैं। यह डाइन-इन फैमिली रेस्टोरेंट के लिए सबसे बेस्ट है।'
+                      ? 'In this mode, as soon as customers scan the tabletop QR code and add items to their cart, they must complete the payment (UPI, cards, or wallet) before the order is placed. The kitchen ticket is automatically generated once the payment succeeds. This is perfect for self-service counters, busy food courts, and crowded cafes where you want to eliminate unpaid order losses.'
+                      : 'In this mode, guests sit comfortably and order food at their own speed. Orders go straight to the chef without waiting. Guests can order more items (extra breads, drinks, or desserts) at any time during their meal. Once they are done dining, they can pay the entire consolidated bill from their phone. This is perfect for traditional dine-in family restaurants.'
                     }
                   </p>
 
                   <div className="bg-slate-50 border border-slate-200/60 p-4 rounded-xl space-y-2.5">
-                    <p className="text-xs font-bold text-slate-950 uppercase tracking-wide font-display">💡 Operational Benefits / संचालन के फायदे:</p>
+                    <p className="text-xs font-bold text-slate-950 uppercase tracking-wide font-display">💡 Operational Benefits:</p>
                     <ul className="space-y-1.5 text-xs text-slate-600">
                       {billingFlowTab === 'prepaid' ? (
                         <>
                           <li className="flex items-start gap-2">
                             <span className="text-emerald-600 font-bold">✓</span>
-                            <span><strong>Zero Losses:</strong> बिना पेमेंट किए ग्राहक जाने या ऑर्डर कैंसल करने का नुकसान बिल्कुल ख़त्म।</span>
+                            <span><strong>Zero Losses:</strong> Completely eliminates unpaid order losses or sudden customer cancellations.</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-emerald-600 font-bold">✓</span>
-                            <span><strong>Fast Table Rotation:</strong> पेमेंट पहले होने के कारण ग्राहक खाना खत्म होते ही उठ जाता है, वेटिंग ख़त्म होती है।</span>
+                            <span><strong>Fast Table Rotation:</strong> Since payment is done upfront, guests can leave as soon as they finish eating, resulting in faster table turnarounds.</span>
                           </li>
                         </>
                       ) : (
                         <>
                           <li className="flex items-start gap-2">
                             <span className="text-[#FF5C35] font-bold">✓</span>
-                            <span><strong>Higher Order Value:</strong> बार-बार पेमेंट का दबाव न होने के कारण ग्राहक 18% से 25% ज़्यादा ऑर्डर करता है।</span>
+                            <span><strong>Higher Order Value:</strong> Without upfront payment friction, guests tend to order 18% to 25% more items dynamically.</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#FF5C35] font-bold">✓</span>
-                            <span><strong>Premium Experience:</strong> ग्राहकों को क्लासिक रेस्टोरेंट सर्विस मिलती है जिससे आपके कैफ़े की प्रतिष्ठा बढ़ती है।</span>
+                            <span><strong>Premium Experience:</strong> Guests enjoy a traditional, hospitable dining service, boosting your cafe&apos;s customer loyalty.</span>
                           </li>
                         </>
                       )}
@@ -1420,7 +1462,7 @@ export default function App() {
 
       {/* 12. PRICING SECTION */}
       <section id="pricing" className="py-20 px-4 bg-white scroll-mt-20">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
           <span className="bg-brand-100 text-brand-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider font-display">
             Simple & Transparent Pricing
           </span>
@@ -1432,258 +1474,380 @@ export default function App() {
           </p>
         </div>
 
+        {/* Dynamic Billing Cycle Toggle Switcher */}
+        <div className="flex justify-center items-center gap-4 mb-12">
+          <button
+            onClick={() => setBillingCycle('monthly')}
+            className={`text-sm font-bold font-display px-4 py-2 rounded-xl transition-all cursor-pointer ${
+              billingCycle === 'monthly'
+                ? 'bg-slate-900 text-white shadow-sm'
+                : 'text-slate-500 hover:text-slate-800'
+            }`}
+          >
+            Monthly Billing
+          </button>
+          <button
+            onClick={() => setBillingCycle('yearly')}
+            className={`text-sm font-bold font-display px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
+              billingCycle === 'yearly'
+                ? 'bg-slate-900 text-white shadow-sm'
+                : 'text-slate-500 hover:text-slate-800'
+            }`}
+          >
+            Annual Billing
+            <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full tracking-wider animate-pulse">
+              Save ~16%
+            </span>
+          </button>
+        </div>
+
         {/* Pricing Layout Cards */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-20">
           
-          {/* Card 1: Monthly */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 flex flex-col justify-between">
-            <div className="space-y-4">
+          {/* Card 1: Starter Plan */}
+          <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 flex flex-col justify-between transition-all hover:border-slate-300">
+            <div className="space-y-5">
               <div>
-                <h4 className="font-display font-extrabold text-slate-900 text-base">Monthly Starter</h4>
-                <p className="text-slate-500 text-[11px] mt-1">Perfect for restaurants that want to start with low investment.</p>
+                <span className="bg-slate-200 text-slate-700 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-md">
+                  1. Starter Plan
+                </span>
+                <h4 className="font-display font-extrabold text-slate-900 text-xl mt-3">Basic Digital Menu</h4>
+                <p className="text-slate-500 text-xs mt-1 leading-relaxed">
+                  Best for small restaurants or cafes wanting a dynamic QR digital menu and standard ordering.
+                </p>
               </div>
 
-              <div className="pt-1 space-y-2">
+              <div className="pt-1 space-y-2 border-t border-slate-200/60">
                 <div className="flex items-baseline gap-1">
-                  <span className="font-display font-black text-slate-950 text-3.5xl font-mono">₹999</span>
-                  <span className="text-slate-500 text-xs font-semibold"> / Month</span>
-                </div>
-                
-                <div className="bg-slate-200/50 border border-slate-200/80 rounded-xl p-2.5 space-y-1">
-                  <div className="flex justify-between items-center text-[11px]">
-                    <span className="text-slate-500 font-medium">Daily Breakdown:</span>
-                    <span className="font-bold text-slate-900 font-mono text-xs">₹33 / Day</span>
-                  </div>
-                  <p className="text-[10px] text-slate-400 text-center leading-none italic pt-1 border-t border-slate-200">
-                    ☕ Less than the cost of one cutting chai!
-                  </p>
-                </div>
-              </div>
-
-              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600">
-                {[
-                  "Unlimited QR Table Ordering",
-                  "Beautiful Digital Menu",
-                  "Customer Ordering & Customizations",
-                  "Live Food Preparation Tracking",
-                  "Admin Kitchen Dashboard",
-                  "Daily Sales Reports",
-                  "Email & WhatsApp Support"
-                ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2 text-[11px]">
-                    <Check className="w-3.5 h-3.5 text-green-600 shrink-0" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-6">
-              <button
-                id="select-monthly-btn"
-                onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold font-display py-3 rounded-xl text-xs transition-colors cursor-pointer"
-              >
-                Choose Monthly starter
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2: Semi-Yearly Premium */}
-          <div className="bg-white border border-slate-200 rounded-3xl p-5 flex flex-col justify-between shadow-xs relative hover:border-slate-300 transition-all">
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-display font-extrabold text-slate-900 text-base">Semi-Yearly Pro</h4>
-                <p className="text-slate-500 text-[11px] mt-1">Excellent balance of savings and operational flexibility.</p>
-              </div>
-
-              <div className="pt-1 space-y-2">
-                <div className="flex items-baseline gap-1">
-                  <span className="font-display font-black text-slate-950 text-3.5xl font-mono">₹4,999</span>
-                  <span className="text-slate-500 text-xs font-semibold"> / 6 Months</span>
-                </div>
-
-                <div className="bg-slate-50 border border-slate-100 rounded-xl p-2.5 space-y-1.5">
-                  <div className="flex justify-between items-center text-[11px]">
-                    <span className="text-slate-500 font-medium">Effective Monthly:</span>
-                    <span className="font-bold text-slate-900 font-mono text-xs">₹833 / Month</span>
-                  </div>
-                  <div className="flex justify-between items-center text-[11px] border-t border-slate-100 pt-1.5">
-                    <span className="text-slate-500 font-medium">Effective Daily:</span>
-                    <span className="font-bold text-slate-900 font-mono text-xs">₹27 / Day</span>
-                  </div>
-                  <p className="text-[10px] text-slate-400 text-center leading-none italic pt-1 border-t border-slate-100">
-                    💼 Less than the cost of a single cup of tea/coffee!
-                  </p>
-                </div>
-              </div>
-
-              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600 font-medium">
-                {[
-                  "Everything included in Monthly",
-                  "Priority Email & WhatsApp Support",
-                  "Custom Menu Banner & Branding",
-                  "Up to 5 Multi-Waiter Logins",
-                  "Monthly Business Performance Audits",
-                  "Free digital QR tabletop files (PDF)"
-                ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2 text-[11px]">
-                    <Check className="w-3.5 h-3.5 text-brand-500 shrink-0" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-6">
-              <button
-                id="select-semi-yearly-btn"
-                onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold font-display py-3 rounded-xl text-xs transition-colors cursor-pointer"
-              >
-                Choose Semi-Yearly Pro
-              </button>
-            </div>
-          </div>
-
-          {/* Card 3: Yearly (Best Value) */}
-          <div className="bg-slate-900 text-white border-2 border-brand-500 rounded-3xl p-5 flex flex-col justify-between relative shadow-xl shadow-brand-500/5">
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-600 to-orange-500 text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1 shrink-0 whitespace-nowrap">
-              <Star className="w-2.5 h-2.5 fill-white" />
-              Yearly Best Value ⭐
-            </div>
-
-            <div className="space-y-4">
-              <div className="pt-2">
-                <h4 className="font-display font-extrabold text-white text-base">Yearly Premium</h4>
-                <div className="flex flex-col gap-1.5 mt-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[10px] text-brand-400 uppercase tracking-wider font-black">🔥 Early Bird Offer</span>
-                    <span className="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-[9px] font-black uppercase px-1.5 py-0.5 rounded-md flex items-center gap-1">
-                      <span className="w-1 h-1 rounded-full bg-orange-400 animate-ping"></span>
-                      First 50 Customers Only
-                    </span>
-                  </div>
-                  <p className="text-slate-400 text-[11px]">Save thousands compared to monthly billing.</p>
-                </div>
-              </div>
-
-              <div className="pt-1 space-y-3">
-                <div className="text-slate-400 text-xs font-semibold flex items-center gap-1 font-mono">
-                  <span>Regular:</span>
-                  <span className="line-through">₹9,999 / Year</span>
-                  <span className="text-slate-500 text-[10px] font-normal font-sans ml-auto">(₹833 / Month | ₹27 / Day)</span>
-                </div>
-                
-                <div className="flex items-baseline gap-1">
-                  <span className="text-slate-400 text-xs font-semibold">Limited Time:</span>
-                  <span className="font-display font-black text-brand-400 text-3.5xl font-mono">₹7,999</span>
-                  <span className="text-slate-300 text-xs font-medium"> / Year</span>
-                </div>
-
-                <div className="bg-brand-500/15 border border-brand-500/30 rounded-2xl p-3 space-y-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-300 font-medium">Effective Monthly:</span>
-                    <span className="font-extrabold text-brand-400 font-mono text-base">₹666 / Month</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs border-t border-brand-500/10 pt-2">
-                    <span className="text-slate-300 font-medium">Effective Daily:</span>
-                    <span className="font-black text-white font-mono text-sm">₹22 / Day</span>
-                  </div>
-                  <p className="text-[10px] text-slate-400 text-center leading-normal pt-1.5 border-t border-brand-500/10">
-                    📉 Only <strong className="text-white">₹22/day</strong> to completely automate your restaurant menu!
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-brand-500/10 border border-brand-500/20 px-3 py-2.5 rounded-xl space-y-1.5">
-                <p className="text-[11px] text-brand-400 font-extrabold flex items-center justify-between gap-1">
-                  <span>🚀 Instant ₹2,000 Discount Applied</span>
-                  <span className="text-[9px] text-orange-400 bg-orange-500/20 border border-orange-500/30 px-1.5 py-0.5 rounded font-black font-mono">
-                    30/50 Claimed
+                  <span className="font-display font-black text-slate-950 text-4xl font-mono">
+                    {billingCycle === 'monthly' ? '₹499' : '₹4,999'}
                   </span>
-                </p>
-                <p className="text-[10px] text-orange-300 font-bold leading-normal">
-                  ⚠️ Only for the first 50 customers! (यह ऑफर सिर्फ पहले 50 customers के लिए है)
-                </p>
-                <p className="text-[10px] text-slate-400 leading-normal font-medium pt-0.5 border-t border-slate-800">
-                  Note: This special promo does not include 2 months free. (Isme 2 month free nahi honge)
-                </p>
+                  <span className="text-slate-500 text-xs font-semibold">
+                    {billingCycle === 'monthly' ? ' / Month' : ' / Year'}
+                  </span>
+                </div>
+                
+                {billingCycle === 'yearly' && (
+                  <div className="text-[11px] text-emerald-600 font-bold font-display">
+                    💡 Equivalent to only ₹416 / Month (Save ~16%)
+                  </div>
+                )}
               </div>
 
-              <ul className="space-y-2.5 pt-4 border-t border-slate-800 text-xs text-slate-300 font-medium">
-                {[
-                  "Everything included in Monthly",
-                  "Priority WhatsApp & Calling Support",
-                  "Custom Domain Integration",
-                  "Unlimited Multi-Waiter Logins",
-                  "Weekly Email Sales Audits",
-                  "Dedicated Success Manager",
-                  "Free QR Standee Stickers pack"
-                ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2 text-[11px]">
-                    <Check className="w-3.5 h-3.5 text-brand-500 shrink-0" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Inclusions & Exclusions */}
+              <div className="space-y-4 pt-4 border-t border-slate-200/60">
+                <div className="space-y-2.5">
+                  <h5 className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Features Included (✅)</h5>
+                  <ul className="space-y-2 text-xs text-slate-700">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>QR Menu:</strong> Dynamic digital menu always kept up-to-date.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Unlimited Menu Items:</strong> Add as many categories and food dishes as you need.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Unlimited Scans:</strong> Customers can scan the table QR code unlimited times.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Basic Ordering:</strong> Customers can place food orders via the digital menu.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Live Order Tracking:</strong> Real-time status updates for placed kitchen orders.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2 border-t border-slate-200/40 pt-3">
+                  <h5 className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Features Excluded (❌)</h5>
+                  <ul className="space-y-2 text-xs text-slate-400">
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>No Addons & Toppings customization</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>No Combo Deals & Item bundles</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>No Upselling (Offers & coupons)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>No Razorpay Online Payment Integration</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>No Restaurant Website (Works only via QR)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-8 border-t border-slate-200/40 mt-6">
               <button
-                id="select-yearly-btn"
+                id="select-starter-plan-btn"
                 onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-gradient-to-r from-brand-600 to-orange-500 hover:from-brand-700 hover:to-orange-600 text-white font-bold font-display py-3 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-md"
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold font-display py-3.5 rounded-xl text-xs transition-colors cursor-pointer text-center uppercase tracking-wider"
               >
-                Choose Yearly Premium
+                Choose Starter Plan
               </button>
             </div>
           </div>
 
-          {/* Card 4: One-Time Onboarding Add-on */}
-          <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div>
-                <span className="bg-blue-50 text-blue-700 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded">OPTIONAL SERVICE</span>
-                <h4 className="font-display font-extrabold text-slate-900 text-base mt-2">One-Time Setup</h4>
-                <p className="text-slate-500 text-[11px] mt-1">We'll do everything for you. Zero effort needed.</p>
-              </div>
-
-              <div className="pt-1">
-                <span className="font-display font-black text-slate-950 text-3xl font-mono">₹2,999</span>
-                <span className="text-slate-500 text-xs font-medium"> / Setup</span>
-              </div>
-
-              <ul className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-600 font-medium">
-                {[
-                  "Complete digital menu setup",
-                  "Food photos professional crop & upload",
-                  "Category & price listing creation",
-                  "High-quality QR Code tabletop generation",
-                  "Premium acrylic QR Table Standees delivered",
-                  "Staff training session via Zoom/Meet",
-                  "Ready to accept digital orders from Day 1"
-                ].map(inc => (
-                  <li key={inc} className="flex items-center gap-2 text-[11px]">
-                    <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Card 2: Growth Plan (Most Popular / Hero Plan) */}
+          <div className="bg-white border-2 border-[#FF5C35] rounded-3xl p-6 flex flex-col justify-between transition-all relative shadow-xl shadow-orange-100/60">
+            <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-[#FF5C35] text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-md flex items-center gap-1 whitespace-nowrap">
+              <Star className="w-3 h-3 fill-white" />
+              Most Popular / Hero Plan ⭐
             </div>
 
-            <div className="pt-6">
+            <div className="space-y-5 pt-3">
+              <div>
+                <span className="bg-orange-100 text-[#FF5C35] text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-md">
+                  2. Growth Plan
+                </span>
+                <h4 className="font-display font-extrabold text-slate-900 text-xl mt-3">Full Restaurant Automation</h4>
+                <p className="text-slate-500 text-xs mt-1 leading-relaxed">
+                  Perfect for dine-in restaurants and active food outlets wanting online payments, a dedicated website, and upselling tools.
+                </p>
+              </div>
+
+              <div className="pt-1 space-y-2 border-t border-slate-200/60">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display font-black text-slate-950 text-4xl font-mono">
+                    {billingCycle === 'monthly' ? '₹999' : '₹9,999'}
+                  </span>
+                  <span className="text-slate-500 text-xs font-semibold">
+                    {billingCycle === 'monthly' ? ' / Month' : ' / Year'}
+                  </span>
+                </div>
+                
+                {billingCycle === 'yearly' ? (
+                  <div className="text-[11px] text-emerald-600 font-bold font-display">
+                    💡 Equivalent to only ₹833 / Month (Save ~16%)
+                  </div>
+                ) : (
+                  <div className="text-[11px] text-[#FF5C35] font-bold font-display">
+                    ⚡ Only ₹33 / Day — Less than a cup of cutting chai!
+                  </div>
+                )}
+              </div>
+
+              {/* Inclusions & Exclusions */}
+              <div className="space-y-4 pt-4 border-t border-slate-200/60">
+                <div className="space-y-2.5">
+                  <h5 className="text-[10px] uppercase font-bold text-orange-600 tracking-wider">Features Included (✅)</h5>
+                  <ul className="space-y-2 text-xs text-slate-700">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Everything in Starter Plan:</strong> Core QR menu & ordering benefits included.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Restaurant Website:</strong> Your own dedicated, beautifully optimized ordering web page.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Analytics Dashboard:</strong> Comprehensive business reports, sales statistics, and user insights.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Customer Database:</strong> Detailed customer contact list and orders history log.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Table-Specific Ordering:</strong> QR table ordering perfectly mapped to individual table numbers.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Razorpay Payment Integration:</strong> Instant UPI, Cards, Netbanking, or Wallets with automatic confirmations.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Unlimited Orders:</strong> Fast and unlimited high-volume orders processing.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Addons Management:</strong> Enable customizations & toppings to upsell menu items.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Combo Bundles:</strong> Bundle products together (e.g., burger + cola) to boost average cart totals.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Offers & Coupons:</strong> Launch seasonal promo codes, flash discounts, and deals.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2 border-t border-slate-200/40 pt-3">
+                  <h5 className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Features Excluded (❌)</h5>
+                  <ul className="space-y-2 text-xs text-slate-400">
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span>No Custom Domain branding (works on elegant subdomain)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-8 border-t border-slate-200/40 mt-6">
               <button
-                id="select-setup-btn"
+                id="select-growth-plan-btn"
                 onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold font-display py-3 rounded-xl text-xs transition-colors cursor-pointer"
+                className="w-full bg-[#FF5C35] hover:bg-orange-600 text-white font-extrabold font-display py-3.5 rounded-xl text-xs transition-colors cursor-pointer text-center uppercase tracking-wider shadow-md shadow-orange-100"
               >
-                Add One-Time Setup
+                Choose Growth Plan
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3: Premium Plan */}
+          <div className="bg-slate-900 text-white border border-slate-800 rounded-3xl p-6 flex flex-col justify-between transition-all hover:border-slate-700">
+            <div className="space-y-5">
+              <div>
+                <span className="bg-brand-500/20 text-brand-400 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-md">
+                  3. Premium Plan
+                </span>
+                <h4 className="font-display font-extrabold text-white text-xl mt-3">Custom Domain & Enterprise</h4>
+                <p className="text-slate-400 text-xs mt-1 leading-relaxed">
+                  Engineered for established brands, premium dine-ins, and multi-location franchise operations needing custom branding.
+                </p>
+              </div>
+
+              <div className="pt-1 space-y-2 border-t border-slate-800">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-display font-black text-white text-4xl font-mono">
+                    {billingCycle === 'monthly' ? '₹1,999' : '₹19,999'}
+                  </span>
+                  <span className="text-slate-400 text-xs font-semibold">
+                    {billingCycle === 'monthly' ? ' / Month' : ' / Year'}
+                  </span>
+                </div>
+                
+                {billingCycle === 'yearly' && (
+                  <div className="text-[11px] text-emerald-400 font-bold font-display">
+                    💡 Equivalent to only ₹1,666 / Month (Save ~16%)
+                  </div>
+                )}
+              </div>
+
+              {/* Inclusions & Exclusions */}
+              <div className="space-y-4 pt-4 border-t border-slate-800">
+                <div className="space-y-2.5">
+                  <h5 className="text-[10px] uppercase font-bold text-brand-400 tracking-wider font-display">Features Included (✅)</h5>
+                  <ul className="space-y-2 text-xs text-slate-300">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Everything in Growth Plan:</strong> Full dynamic capabilities and configurations.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Custom Domain Integration:</strong> Connect your own web domain (e.g., www.yourrestaurant.com) instead of a subdomain.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>White-Label Branding:</strong> Remove "Powered by MenuSarthi" footprints completely.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Dedicated Account Manager:</strong> Premium WhatsApp & calling support on priority.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Multi-Location Outlets:</strong> Manage multiple menus, branches, and staff centrally from one dashboard.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2 border-t border-slate-800 pt-3">
+                  <h5 className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Features Excluded (❌)</h5>
+                  <p className="text-xs text-slate-500 italic">None. All features and tools are fully unlocked.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-8 border-t border-slate-800 mt-6">
+              <button
+                id="select-premium-plan-btn"
+                onClick={() => setIsBookingModalOpen(true)}
+                className="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold font-display py-3.5 rounded-xl text-xs transition-colors cursor-pointer text-center uppercase tracking-wider"
+              >
+                Choose Premium Plan
               </button>
             </div>
           </div>
 
         </div>
+
+        {/* PLANS SUMMARY COMPARISON TABLE */}
+        <div className="max-w-5xl mx-auto border-t border-slate-200/60 pt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-xl sm:text-2xl font-display font-black text-slate-900">
+              📊 MenuSarthi Pricing Plans Summary Table
+            </h3>
+            <p className="text-slate-500 text-xs mt-1">
+              Quick side-by-side view to choose the absolute best fit for your food business.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-100/40 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse">
+                <thead>
+                  <tr className="bg-slate-950 text-white font-display uppercase tracking-wider text-[11px] border-b border-slate-800">
+                    <th className="p-4 font-bold">Plan Name</th>
+                    <th className="p-4 font-bold">Monthly Price</th>
+                    <th className="p-4 font-bold">Annual Price (Save ~16%)</th>
+                    <th className="p-4 font-bold">Key Target Audience</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
+                  <tr className="hover:bg-slate-50">
+                    <td className="p-4 font-bold text-slate-950 font-display flex items-center gap-1.5 whitespace-nowrap">
+                      <span className="text-slate-400">📁</span> 1. Starter Plan
+                    </td>
+                    <td className="p-4 font-mono font-bold text-slate-900 whitespace-nowrap">₹499 / Month</td>
+                    <td className="p-4 font-mono font-bold text-emerald-600 whitespace-nowrap">₹4,999 / Year</td>
+                    <td className="p-4 text-xs text-slate-500 min-w-[280px]">
+                      Chote restaurants ya cafes jinhe sirf QR digital menu aur normal orders chahiye.
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-orange-50/20 bg-orange-50/5">
+                    <td className="p-4 font-bold text-orange-600 font-display flex items-center gap-1.5 whitespace-nowrap">
+                      <span className="text-orange-500">🔥</span> 2. Growth Plan (Hero)
+                    </td>
+                    <td className="p-4 font-mono font-bold text-slate-900 whitespace-nowrap">₹999 / Month</td>
+                    <td className="p-4 font-mono font-bold text-emerald-600 whitespace-nowrap">₹9,999 / Year</td>
+                    <td className="p-4 text-xs text-slate-500 min-w-[280px]">
+                      Dine-in restaurants aur active food outlets jinhe online payments, website, aur advanced promotions chahiye.
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-slate-50">
+                    <td className="p-4 font-bold text-slate-950 font-display flex items-center gap-1.5 whitespace-nowrap">
+                      <span className="text-brand-500">👑</span> 3. Premium Plan
+                    </td>
+                    <td className="p-4 font-mono font-bold text-slate-900 whitespace-nowrap">₹1,999 / Month</td>
+                    <td className="p-4 font-mono font-bold text-emerald-600 whitespace-nowrap">₹19,999 / Year</td>
+                    <td className="p-4 text-xs text-slate-500 min-w-[280px]">
+                      Established brands aur franchises jinhe custom domain branding aur high-level features chahiye.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       {/* 13. COMPARISON SECTION */}
@@ -1778,8 +1942,8 @@ export default function App() {
               a: "Absolutely not! Guests simply scan the table QR code using their default phone camera or Google Lens. Your digital menu opens instantly inside their default browser (Safari, Chrome, etc.). They can order and pay directly without downloads."
             },
             {
-              q: "How do payments work in MenuSarthi? (MenuSarthi में पेमेंट सिस्टम कैसे काम करता है?)",
-              a: "We offer two flexible options so you can choose what works best for your restaurant:\n\n1. Direct UPI to Owner QR (0% Commission): We link the customer app directly with your existing restaurant UPI ID (VPA). When a customer pays, money goes 100% directly to your bank account with ZERO gateway fees. Since no third-party gateway is involved, your staff manually verifies the payment screenshot at the counter, exactly like you have been doing up to now.\n\n2. Razorpay Integration (Automatic Confirmation - Recommended): For busy restaurants, we integrate your Razorpay gateway. Customers can pay via UPI, Credit/Debit Cards, or Wallets, and the payment status is confirmed automatically in real-time. The kitchen order fires instantly without any manual verification, saving valuable staff time. Standard ~2% payment gateway charges apply.\n\n(MenuSarthi में हमने आपके लिए दो बेहद आसान पेमेंट विकल्प दिए हैं:\n\n1. डायरेक्ट UPI भुगतान (0% कमीशन): कस्टमर सीधे आपके बैंक खाते में UPI से भुगतान करता है। इसमें कोई पेमेंट गेटवे शामिल नहीं होता, इसलिए आपको कोई एक्स्ट्रा चार्ज (0% शुल्क) नहीं देना होता। इसमें पेमेंट का स्क्रीनशॉट या रसीद आपके स्टाफ को काउंटर पर खुद ही मैन्युअल चेक करना होगा, जैसे आप अब तक दुकान पर करते आए हैं।\n\n2. रेज़रपे इंटीग्रेशन (ऑटोमैटिक कन्फर्मेशन - रिकमेंडेड): अगर आप ऑटोमैटिक सिस्टम चाहते हैं, तो रेज़रपे गेटवे कनेक्ट हो जाता है। कस्टमर UPI, कार्ड या वॉलेट से पेमेंट करता है, और सिस्टम तुरंत पेमेंट कन्फर्म कर लेता है। बिना किसी मैन्युअल स्क्रीनशॉट वेरिफिकेशन के, ऑर्डर सीधे किचन में चला जाता है। इसमें गेटवे का स्टैंडर्ड ~2% चार्ज लगता है।)"
+              q: "How do payments work in MenuSarthi?",
+              a: "We offer two flexible options so you can choose what works best for your restaurant:\n\n1. Direct UPI to Owner QR (0% Commission): We link the customer app directly with your existing restaurant UPI ID. When a customer pays, money goes 100% directly to your bank account with ZERO gateway fees. Since no third-party gateway is involved, your staff manually verifies the payment screenshot at the counter, exactly like you do right now.\n\n2. Razorpay Integration (Automatic Confirmation - Recommended): For busy restaurants, we integrate your Razorpay gateway. Customers can pay via UPI, Credit/Debit Cards, or Wallets, and the payment status is confirmed automatically in real-time. The kitchen order fires instantly without any manual verification, saving valuable staff time. Standard ~2% payment gateway charges apply."
             },
             {
               q: "Is there any expensive hosting fees or server maintenance?",
@@ -1794,12 +1958,12 @@ export default function App() {
               a: "Yes! Your central Admin panel lets you change prices, add dishes, and toggle 'Out of stock' instantly. If an ingredient runs out, toggle it off to prevent wrong table orders."
             },
             {
-              q: "Is MenuSarthi suitable for cafes/restaurants that get 50 to 200 orders per day? (क्या यह उन रेस्टोरेंट और कैफ़े के लिए सही है जहाँ रोज़ 50 से 200 ऑर्डर्स आते हैं?)",
-              a: "Yes, absolutely! In fact, 50 to 200 orders per day is the absolute 'golden sweet spot' for MenuSarthi. At this scale, your wait staff is usually overloaded during peak hours (lunch & dinner rush), causing tables to sit idle waiting for menus or billing. By letting customers order and pay themselves, you eliminate order-taking delays, reduce kitchen bottlenecks, and save on hiring 1-2 extra waiters (saving ₹15,000+ monthly in salaries). Your staff can focus purely on delivering hot food fast!\n\n(हाँ, बिल्कुल! सच कहें तो रोज़ाना 50 से 200 ऑर्डर्स वाले रेस्टोरेंट और कैफ़े के लिए MenuSarthi सबसे ज़्यादा फ़ायदेमंद है। इस स्केल पर, भीड़ के समय वेटर्स बहुत ज़्यादा बिज़ी हो जाते हैं, जिससे ऑर्डर्स और बिलिंग में देरी होती है। जब कस्टमर्स खुद टेबल से ऑर्डर और पेमेंट कर देते हैं, तो वेटिंग टाइम ख़त्म हो जाता है और आपको फालतू 1-2 वेटर्स रखने की ज़रूरत नहीं पड़ती—जिससे हर महीने ₹15,000+ की सैलरी बचती है! आपके मौजूदा वेटर्स सिर्फ़ गरमा-गरम खाना सर्व करने पर ध्यान दे सकते हैं।)"
+              q: "Is MenuSarthi suitable for cafes/restaurants that get 50 to 200 orders per day?",
+              a: "Yes, absolutely! In fact, 50 to 200 orders per day is the absolute 'golden sweet spot' for MenuSarthi. At this scale, your wait staff is usually overloaded during peak hours (lunch & dinner rush), causing tables to sit idle waiting for menus or billing. By letting customers order and pay themselves, you eliminate order-taking delays, reduce kitchen bottlenecks, and save on hiring 1-2 extra waiters (saving ₹15,000+ monthly in salaries). Your staff can focus purely on delivering hot food fast!"
             },
             {
-              q: "Kya yeh local dhabas aur small roadside eateries ke liye bhi perfect hai?",
-              a: "Haan, bilkul! MenuSarthi local dhabas, roadside family restaurants, aur street-food corners ke liye ekdum perfect aur super easy hai. Table par QR codes lagane se clients khud mobile se seedhe order karte hain, jisse baar-baar chilane aur waiter dhoodhne ka tension khatam ho jaata hai. Aur customer se payment bhi seedhe aapke account me UPI se instant credit ho jaati hai!"
+              q: "Is it perfect for local dhabas and small roadside eateries?",
+              a: "Yes, absolutely! MenuSarthi is super easy and perfect for local dhabas, roadside family restaurants, and street-food corners. Placing QR codes on tables allows clients to order directly from their mobiles, eliminating the need to shout for waiters. Payments are also instantly credited directly to your bank account via UPI!"
             }
           ].map((faq, i) => (
             <div key={i} className="bg-slate-50 border border-slate-100 p-5 rounded-2xl space-y-2">
@@ -1849,11 +2013,11 @@ export default function App() {
           <div className="md:col-span-3 space-y-3">
             <h6 className="font-display font-bold text-white text-xs uppercase tracking-wider">Product Features</h6>
             <ul className="space-y-2 text-slate-500">
-              <li><a href="#playground" className="hover:text-slate-300 transition-colors">QR Table Ordering</a></li>
-              <li><a href="#playground" className="hover:text-slate-300 transition-colors">Digital Interactive Menu</a></li>
-              <li><a href="#playground" className="hover:text-slate-300 transition-colors">Direct UPI Cashouts</a></li>
-              <li><a href="#playground" className="hover:text-slate-300 transition-colors">Live Kitchen Monitor</a></li>
-              <li><a href="#playground" className="hover:text-slate-300 transition-colors">CA Export Accounting</a></li>
+              <li><a href="#features" className="hover:text-slate-300 transition-colors">QR Table Ordering</a></li>
+              <li><a href="#features" className="hover:text-slate-300 transition-colors">Digital Interactive Menu</a></li>
+              <li><a href="#features" className="hover:text-slate-300 transition-colors">Direct UPI Cashouts</a></li>
+              <li><a href="#features" className="hover:text-slate-300 transition-colors">Live Kitchen Monitor</a></li>
+              <li><a href="#features" className="hover:text-slate-300 transition-colors">CA Export Accounting</a></li>
             </ul>
           </div>
 
