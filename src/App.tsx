@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import ConversationalSarthi from './components/ConversationalSarthi';
 import LiveAppGallery from './components/LiveAppGallery';
+import DirectDeliverySection from './components/DirectDeliverySection';
 import { DemoBooking } from './types';
 
 // ============================================================================
@@ -117,16 +118,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
       
-      {/* 1. TOP ANNOUNCEMENT BAR */}
-      <div className="bg-slate-900 text-slate-300 py-2.5 px-4 text-center text-xs border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-2">
-          <span className="bg-brand-500 text-white font-extrabold px-2 py-0.5 rounded text-[10px] tracking-wide font-display">LAUNCH OFFER</span>
-          <p className="font-medium font-display tracking-wide">
-            Get our Limited-Time <strong>Early Bird Yearly Offer</strong> for ₹7,999/year (Only <strong className="text-white font-black">₹22/day</strong>!) & Hands-Free Menu Setup!
-          </p>
-        </div>
-      </div>
-
       {/* 2. MAIN HEADER / NAVIGATION */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
@@ -165,6 +156,9 @@ export default function App() {
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-600">
             <a href="#problem" className="hover:text-slate-900 transition-colors">Features</a>
+            <a href="#direct-delivery" className="hover:text-brand-600 transition-colors flex items-center gap-1 font-bold text-slate-800">
+              Direct Delivery 🛵
+            </a>
             <a href="#live-demo-section" className="hover:text-[#FF5C35] transition-colors flex items-center gap-1">
               Live Demo <span className="bg-orange-100 text-[#FF5C35] text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse font-display">New</span>
             </a>
@@ -201,6 +195,7 @@ export default function App() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-slate-100 px-4 py-4 space-y-3 animate-slide-up">
             <a href="#problem" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 font-semibold text-sm">Features</a>
+            <a href="#direct-delivery" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-brand-600 font-bold text-sm">Direct Delivery 🛵</a>
             <a href="#live-demo-section" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-[#FF5C35] font-bold text-sm flex items-center gap-1.5">
               Live Demo ⚡ <span className="bg-orange-100 text-[#FF5C35] text-[9px] px-1.5 py-0.5 rounded-full">Try Now</span>
             </a>
@@ -736,6 +731,9 @@ export default function App() {
 
       {/* 6.5 LIVE APP INTERFACE TOUR */}
       <LiveAppGallery />
+
+      {/* 6.8 DIRECT DELIVERY FEATURE SECTION */}
+      <DirectDeliverySection onBookDemo={() => setIsBookingModalOpen(true)} />
 
       {/* 7. SYSTEM DEMO VIDEO SECTION */}
       <section id="demo-video" className="py-20 px-4 bg-slate-900 text-white scroll-mt-20 border-b border-slate-800">
@@ -1567,6 +1565,10 @@ export default function App() {
                   <ul className="space-y-2 text-xs text-slate-400">
                     <li className="flex items-start gap-2">
                       <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      <span><strong>No Direct Delivery System:</strong> (GPS Pinning & Live Tracking not in ₹499 plan)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                       <span>No Addons & Toppings customization</span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -1683,6 +1685,10 @@ export default function App() {
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span><strong>Direct Delivery System:</strong> 0% Commission delivery with GPS pin location & live order tracking.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                       <span><strong>Offers & Coupons:</strong> Launch seasonal promo codes, flash discounts, and deals.</span>
                     </li>
                   </ul>
@@ -1748,7 +1754,7 @@ export default function App() {
                   <ul className="space-y-2 text-xs text-slate-300">
                     <li className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span><strong>Everything in Growth Plan:</strong> Full dynamic capabilities and configurations.</span>
+                      <span><strong>Everything in Growth Plan:</strong> Full dynamic capabilities and configurations (Includes Direct Delivery).</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -2013,11 +2019,11 @@ export default function App() {
           <div className="md:col-span-3 space-y-3">
             <h6 className="font-display font-bold text-white text-xs uppercase tracking-wider">Product Features</h6>
             <ul className="space-y-2 text-slate-500">
+              <li><a href="#direct-delivery" className="hover:text-brand-400 transition-colors font-bold text-slate-300">Direct Delivery 🛵 (0% Commission)</a></li>
               <li><a href="#features" className="hover:text-slate-300 transition-colors">QR Table Ordering</a></li>
               <li><a href="#features" className="hover:text-slate-300 transition-colors">Digital Interactive Menu</a></li>
               <li><a href="#features" className="hover:text-slate-300 transition-colors">Direct UPI Cashouts</a></li>
               <li><a href="#features" className="hover:text-slate-300 transition-colors">Live Kitchen Monitor</a></li>
-              <li><a href="#features" className="hover:text-slate-300 transition-colors">CA Export Accounting</a></li>
             </ul>
           </div>
 
