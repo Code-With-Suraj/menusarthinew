@@ -178,7 +178,7 @@ export default function ConversationalSarthi() {
         `⚡ **Staff Optimization**: Save **₹${laborSavings.toLocaleString('en-IN')}** per year in labor coordination and order-taking speed.\n` +
         `📈 **Table Turnover Boost**: Potential extra revenue of **₹${revenueBoost.toLocaleString('en-IN')}** per year through faster orders and smart upselling.\n\n` +
         `🔥 **TOTAL ESTIMATED VALUE**: **₹${totalAnnualBenefit.toLocaleString('en-IN')} / year**! \n\n` +
-        `All this for just **₹9,999/year** (less than ₹28 a day). Ready to start?`,
+        `All this for just **₹6,999/year** (less than ₹20 a day). Ready to start?`,
         ["📅 Book My Free Demo", "💵 View Plans & Pricing", "⬅️ Back to Main Options"]
       );
     }
@@ -312,7 +312,7 @@ export default function ConversationalSarthi() {
       if (lower.includes('dhaba') || lower.includes('dhaba') || lower.includes('roadside') || lower.includes('small restaurant') || lower.includes('eatery')) {
         addBotMessage("🌾 **Dhabas ke liye bilkul perfect hai!**\n\nMenuSarthi local dhabas aur small roadside eateries ke liye ekdum perfect solution hai:\n- 🚫 **No Order Shouting**: Ab baar-baar chilane aur manual order likhne ki jhanjhat bilkul khatam.\n- 📱 **Direct Table Orders**: Customers khud table par baith kar scan karke order kar sakte hain.\n- 💰 **UPI payments directly to your account**: Cash aur badle paise ki chinta khatam, payment seedhe aapke bank account me 0% commission par.\n\nKya aap apne dhabe ke liye ek free demo book karna chahenge?", ["📅 Book Demo Now", "📊 Calculate My Savings", "⬅️ Back to Main Options"]);
       } else if (lower.includes('price') || lower.includes('cost') || lower.includes('plan') || lower.includes('charge')) {
-        addBotMessage("MenuSarthi offers simple pricing:\n\n- **Monthly**: ₹999/month (Perfect to start)\n- **Yearly**: ₹9,999/year (Get 2 months free! 🔥)\n- **One-time Onboarding**: ₹2,999 (Complete setup & stands)\n\nWhich plan fits your budget?", ["Monthly Plan", "Yearly Plan (Best Value)", "Book Demo Now", "⬅️ Back to Main Options"]);
+        addBotMessage("MenuSarthi offers 3 simple transparent plans:\n\n- **Starter Plan**: ₹399/month (Basic QR Table Menu)\n- **Growth Plan**: ₹599/month (Includes 0% Commission Direct Delivery, Smart Combos & Customer DB)\n- **Premium Plan**: ₹799/month (Multi-outlet & Custom Domain Branding)\n\nWhich plan fits your restaurant's needs?", ["Starter Plan (₹399/mo)", "Growth Plan (₹599/mo)", "Premium Plan (₹799/mo)", "Book Demo Now", "⬅️ Back to Main Options"]);
       } else if (lower.includes('upi') || lower.includes('pay') || lower.includes('google pay') || lower.includes('phonepe')) {
         addBotMessage("MenuSarthi supports UPI direct payments! There are absolutely **0% transaction fees**. Customers scan, select UPI apps, and send money directly to your UPI ID instantly.", ["📊 Calculate My Savings", "⬅️ Back to Main Options"]);
       } else if (lower.includes('demo') || lower.includes('book') || lower.includes('schedule')) {

@@ -44,7 +44,7 @@ export default function DirectDeliverySection({ onBookDemo }: DirectDeliverySect
           <div className="pt-2">
             <span className="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-xs text-slate-300">
               <span className="bg-emerald-500/20 text-emerald-400 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase font-mono">Included in Growth & Premium</span>
-              <span className="text-slate-400 font-medium">| Not available in ₹499 Starter Plan</span>
+              <span className="text-slate-400 font-medium">| Not available in ₹399 Starter Plan</span>
             </span>
           </div>
 
@@ -292,7 +292,7 @@ export default function DirectDeliverySection({ onBookDemo }: DirectDeliverySect
                     <td className="py-4 px-6 text-emerald-300 bg-emerald-950/10 font-bold">
                       <div className="flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
-                        <span>Growth Plan (₹999) & Premium Plan (₹1,999)</span>
+                        <span>Growth Plan (₹599) & Premium Plan (₹799)</span>
                       </div>
                     </td>
                   </tr>
@@ -371,7 +371,7 @@ export default function DirectDeliverySection({ onBookDemo }: DirectDeliverySect
               Ready to Save Thousands in Aggregator Commissions?
             </h3>
             <p className="text-orange-100 text-xs sm:text-sm">
-              Get MenuSarthi Direct Delivery enabled with our Growth (₹999) or Premium (₹1,999) plan.
+              Get MenuSarthi Direct Delivery enabled with our Growth (₹599) or Premium (₹799) plan.
             </p>
             <div className="pt-2">
               <button

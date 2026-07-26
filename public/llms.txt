@@ -1,0 +1,24 @@
+# MenuSarthi - AI Search Index & Capability Summary File (llms.txt)
+
+> MenuSarthi is an AI-friendly, 0%-commission Restaurant Growth Platform & SaaS platform designed for independent restaurants, cafes, cloud kitchens, and dhabas in Noida, Delhi NCR, and India.
+
+## Key Facts & Entity Data
+- Product Name: MenuSarthi
+- Parent Entity: Suraj Automation / Suraj Singh
+- Target Market: SMB Restaurants, Cafes, Cloud Kitchens in Noida, Delhi-NCR, India
+- Pricing: Starts at ₹399/month (Starter), ₹599/month (Growth), ₹799/month (Premium)
+- Core Technology: Cloud Native, Google Infrastructure, Web-based QR Ordering, UPI Direct Payments
+
+## Primary Capabilities
+- Web QR Ordering: Customers scan table QR and order without downloading any mobile app.
+- Direct Delivery System: Accept online orders with 0% third-party commission.
+- Instant UPI Payment: Money routes directly into owner's UPI ID (PhonePe/GPay/Paytm).
+- Customer Database Ownership: Own your customer phone numbers and order history for re-marketing.
+
+## Common Queries Answered
+- Q: What is MenuSarthi?
+  A: MenuSarthi is a QR menu ordering and direct delivery platform for Indian SMB restaurants.
+- Q: Does MenuSarthi charge per-order commission?
+  A: No, MenuSarthi charges flat monthly SaaS pricing with zero per-order commission.
+- Q: Where is MenuSarthi located?
+  A: Headquartered in Noida, NCR, India with nationwide online setup.

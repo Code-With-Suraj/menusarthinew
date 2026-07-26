@@ -1,42 +1,10 @@
-export interface MenuItem {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  isVeg: boolean;
-  addOns?: { name: string; price: number }[];
-}
-
-export type OrderStatus = 'received' | 'preparing' | 'ready' | 'completed';
-
-export interface OrderItem {
-  item: MenuItem;
-  quantity: number;
-  selectedAddOns: { name: string; price: number }[];
-  instructions: string;
-}
-
-export interface Order {
-  id: string;
-  tableNumber: string;
-  items: OrderItem[];
-  subtotal: number;
-  gst: number;
-  total: number;
-  status: OrderStatus;
-  paymentStatus: 'pending' | 'paid';
-  timestamp: string;
-}
-
 export interface ChatMessage {
   id: string;
-  sender: 'user' | 'bot';
+  sender: 'bot' | 'user';
   text: string;
   timestamp: string;
   options?: string[];
-  actionType?: 'roi_calc' | 'book_demo' | 'faq' | 'general';
+  actionType?: 'roi' | 'demo' | 'faq';
 }
 
 export interface DemoBooking {
@@ -45,4 +13,44 @@ export interface DemoBooking {
   phone: string;
   date: string;
   timeSlot: string;
+  restaurantType?: string;
+  city?: string;
+}
+
+export interface RestaurantCategory {
+  id: string;
+  name: string;
+  icon: string;
+  tagline: string;
+  description: string;
+  metrics: string;
+  badge: string;
+}
+
+export interface WhiteLabelConfig {
+  brandName: string;
+  customDomain: string;
+  primaryColor: string;
+  logoType: string;
+  enabledModules: string[];
+}
+
+export interface TrustQuestion {
+  question: string;
+  answer: string;
+  category: 'security' | 'growth' | 'branding' | 'support' | 'migration';
+  icon: string;
+}
+
+export interface Testimonial {
+  id: string;
+  ownerName: string;
+  role: string;
+  restaurantName: string;
+  location: string;
+  image: string;
+  quote: string;
+  growthStat: string;
+  statLabel: string;
+  category: string;
 }
