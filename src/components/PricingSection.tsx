@@ -208,22 +208,7 @@ export default function PricingSection({ onBookDemo }: { onBookDemo: () => void 
 
         </div>
 
-        {/* Enterprise & Franchise Banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-mono font-bold text-amber-400 uppercase">FRANCHISE & CUSTOM DEVELOPMENT TIER</span>
-            <h3 className="text-xl font-bold text-white">Need Custom Modular Extensions, POS Sync, or WhatsApp AI?</h3>
-            <p className="text-slate-400 text-xs max-w-2xl">
-              Our engineering team builds custom integrations for multi-branch franchise chains, local POS billing software, and specialized ERPs.
-            </p>
-          </div>
-          <button
-            onClick={onBookDemo}
-            className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-xs rounded-xl uppercase tracking-wider transition-all shrink-0 cursor-pointer"
-          >
-            Talk to Enterprise Engineer
-          </button>
-        </div>
+
 
       </div>
     </section>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import VideoDemoSection from './components/VideoDemoSection';
 import WhiteLabelCustomizer from './components/WhiteLabelCustomizer';
 import FounderStory from './components/FounderStory';
 import WhoIsItForSection from './components/WhoIsItForSection';
@@ -32,6 +33,9 @@ export default function App() {
       <main>
         {/* 1. Hero Section */}
         <HeroSection onBookDemo={handleOpenDemo} />
+
+        {/* 1.5. Official Product Video Demo */}
+        <VideoDemoSection onBookDemo={handleOpenDemo} />
 
         {/* 2. Interactive White Label & Custom Engine */}
         <WhiteLabelCustomizer onBookDemo={handleOpenDemo} />

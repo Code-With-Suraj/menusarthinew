@@ -27,6 +27,10 @@ export default function Navbar({ onBookDemo }: { onBookDemo: () => void }) {
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center gap-8 text-xs font-bold font-mono text-slate-300">
+          <a href="#video-demo" className="hover:text-amber-400 transition-colors flex items-center gap-1 text-red-400 font-extrabold">
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-ping inline-block" />
+            <span>Watch Demo</span>
+          </a>
           <a href="#white-label" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
             <Globe className="w-3.5 h-3.5 text-amber-400" />
             <span>White Label</span>
@@ -75,6 +79,14 @@ export default function Navbar({ onBookDemo }: { onBookDemo: () => void }) {
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-slate-950 border-b border-slate-800 px-6 py-6 space-y-4 text-sm font-bold font-mono text-slate-300 animate-fadeIn">
+          <a 
+            href="#video-demo" 
+            onClick={() => setMobileMenuOpen(false)} 
+            className="block py-2 text-red-400 font-bold flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <span>Watch Live Video Demo</span>
+          </a>
           <a 
             href="#white-label" 
             onClick={() => setMobileMenuOpen(false)} 
