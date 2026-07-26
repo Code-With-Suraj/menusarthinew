@@ -195,15 +195,19 @@ export default function ConversationalSarthi() {
         timeSlot: bookingState.timeSlot || "Anytime"
       };
 
-      const message = `*New Free Live Demo Booking* 🚀\n` +
-        `-----------------------------------\n` +
-        `*Restaurant/Cafe:* ${lastBooking.restaurantName}\n` +
-        `*Owner Name:* ${lastBooking.ownerName}\n` +
-        `*WhatsApp:* ${lastBooking.phone}\n` +
-        `*Date:* ${lastBooking.date}\n` +
-        `*Time Slot:* ${lastBooking.timeSlot}\n` +
-        `-----------------------------------\n` +
-        `Please confirm my demo schedule. Thank you!`;
+      const message = `🔥 *NEW 5-MIN LIVE DEMO REQUEST* 🔥\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        `👤 *OWNER DETAILS*\n` +
+        `• *Owner Name:* ${lastBooking.ownerName}\n` +
+        `• *Phone / WhatsApp:* ${lastBooking.phone}\n\n` +
+        `🏪 *RESTAURANT DETAILS*\n` +
+        `• *Restaurant Name:* ${lastBooking.restaurantName}\n\n` +
+        `📅 *PREFERRED DEMO SCHEDULE*\n` +
+        `• *Date:* ${lastBooking.date}\n` +
+        `• *Time Slot:* ${lastBooking.timeSlot}\n\n` +
+        `💡 *Message:* "Hi MenuSarthi Team, please confirm my 5-minute live screen-share demo!"\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `🚀 *Sent via MenuSarthi Conversational Assistant*`;
 
       const encodedText = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/918851666208?text=${encodedText}`;
@@ -280,15 +284,19 @@ export default function ConversationalSarthi() {
 
       setBookingState(prev => ({ ...prev, timeSlot: text, step: 'completed' }));
 
-      const message = `*New Free Live Demo Booking* 🚀\n` +
-        `-----------------------------------\n` +
-        `*Restaurant/Cafe:* ${newBooking.restaurantName}\n` +
-        `*Owner Name:* ${newBooking.ownerName}\n` +
-        `*WhatsApp:* ${newBooking.phone}\n` +
-        `*Date:* ${newBooking.date}\n` +
-        `*Time Slot:* ${newBooking.timeSlot}\n` +
-        `-----------------------------------\n` +
-        `Please confirm my demo schedule. Thank you!`;
+      const message = `🔥 *NEW 5-MIN LIVE DEMO REQUEST* 🔥\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+        `👤 *OWNER DETAILS*\n` +
+        `• *Owner Name:* ${newBooking.ownerName}\n` +
+        `• *Phone / WhatsApp:* ${newBooking.phone}\n\n` +
+        `🏪 *RESTAURANT DETAILS*\n` +
+        `• *Restaurant Name:* ${newBooking.restaurantName}\n\n` +
+        `📅 *PREFERRED DEMO SCHEDULE*\n` +
+        `• *Date:* ${newBooking.date}\n` +
+        `• *Time Slot:* ${newBooking.timeSlot}\n\n` +
+        `💡 *Message:* "Hi MenuSarthi Team, I want to see a live 5-minute screen-share demo of MenuSarthi QR ordering & KDS!"\n\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `🚀 *Sent via MenuSarthi Conversational Assistant*`;
 
       const encodedText = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/918851666208?text=${encodedText}`;

@@ -34,22 +34,30 @@ export default function DemoBookingModal({
       origin: { y: 0.6 }
     });
 
-    // Prepare WhatsApp URL
-    const message = `Hello MenuSarthi Team! I would like to book a 5-minute Live Demo for my restaurant.\n\n` +
-      `📌 *Restaurant Name*: ${formData.restaurantName}\n` +
-      `👤 *Owner Name*: ${formData.ownerName}\n` +
-      `📞 *Phone*: ${formData.phone}\n` +
-      `📍 *City*: ${formData.city || 'N/A'}\n` +
-      `🍽️ *Type*: ${formData.restaurantType}\n` +
-      `📅 *Preferred Date*: ${formData.date}\n` +
-      `⏰ *Time Slot*: ${formData.timeSlot}`;
+    const targetNumber = '918851666208';
+
+    const message = `🔥 *NEW 5-MIN LIVE DEMO REQUEST* 🔥\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `👤 *OWNER DETAILS*\n` +
+      `• *Owner Name:* ${formData.ownerName}\n` +
+      `• *Phone / WhatsApp:* ${formData.phone}\n` +
+      `• *City / Location:* ${formData.city || 'Not specified'}\n\n` +
+      `🏪 *RESTAURANT DETAILS*\n` +
+      `• *Restaurant Name:* ${formData.restaurantName}\n` +
+      `• *Outlet Type:* ${formData.restaurantType || 'Restaurant'}\n\n` +
+      `📅 *PREFERRED DEMO SCHEDULE*\n` +
+      `• *Date:* ${formData.date}\n` +
+      `• *Time Slot:* ${formData.timeSlot}\n\n` +
+      `💡 *Message:* "Hi MenuSarthi Team, I want to see a live 5-minute screen-share demo of MenuSarthi QR ordering & KDS!"\n\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `🚀 *Sent via MenuSarthi Online Portal*`;
 
     const encodedMsg = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919999999999?text=${encodedMsg}`;
+    const whatsappUrl = `https://wa.me/${targetNumber}?text=${encodedMsg}`;
 
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
-    }, 1200);
+    }, 1000);
   };
 
   return (
@@ -96,15 +104,29 @@ export default function DemoBookingModal({
               <div><strong className="text-slate-400">Date & Slot:</strong> {formData.date} ({formData.timeSlot})</div>
             </div>
 
-            <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
-              className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl transition-all cursor-pointer"
-            >
-              Close Window
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href={`https://wa.me/918851666208?text=${encodeURIComponent(
+                  `🔥 *NEW 5-MIN LIVE DEMO REQUEST* 🔥\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n👤 *OWNER DETAILS*\n• *Owner Name:* ${formData.ownerName}\n• *Phone / WhatsApp:* ${formData.phone}\n• *City / Location:* ${formData.city || 'Not specified'}\n\n🏪 *RESTAURANT DETAILS*\n• *Restaurant Name:* ${formData.restaurantName}\n• *Outlet Type:* ${formData.restaurantType || 'Restaurant'}\n\n📅 *PREFERRED DEMO SCHEDULE*\n• *Date:* ${formData.date}\n• *Time Slot:* ${formData.timeSlot}\n\n💡 *Message:* "Hi MenuSarthi Team, I want to see a live 5-minute screen-share demo of MenuSarthi QR ordering & KDS!"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🚀 *Sent via MenuSarthi Online Portal*`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Send className="w-4 h-4" />
+                <span>Open WhatsApp Chat (8851666208)</span>
+              </a>
+
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  onClose();
+                }}
+                className="w-full sm:w-auto px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl transition-all cursor-pointer"
+              >
+                Close Window
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
